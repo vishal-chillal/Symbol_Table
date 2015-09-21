@@ -46,3 +46,5 @@ int text_entry (TsysTab **head,char *name,char *sec,int val,char *sysType, int l
 
 int createLiteralTable(litTab **head,char filepath[]);
 int insert(litTab **head,char *literal );
+
+int checkRepeat(sysTab **pHead, char *name);
