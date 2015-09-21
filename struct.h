@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+// struct for only bss and data section  
 typedef struct symbol_table
 {
   int index,lineNo;
@@ -11,6 +11,7 @@ typedef struct symbol_table
 
 }sysTab;
 
+// sepearate structure symbol table for text section symbol table
 typedef struct text_symb_table
 {
   int index,lineNo,val;
@@ -19,11 +20,20 @@ typedef struct text_symb_table
 
 }TsysTab;
 
+//structure for opCode table 
 typedef struct opcd
 {
   char *mn,*op1,*op2,*opcode;
   struct opcd *pNext;
 }opcd;
+
+//structure for literal table having three values
+typedef struct literal_table{
+	char *op2;
+	char *hexVal;
+	struct literal_table *next;
+}litTab;
+
 
 int oP_Tab_main();
 int optable(opcd **ppHead,char *opcode,char *instr, char *op1,char *op2);
@@ -34,3 +44,4 @@ int print_table( sysTab **head);
 int text_print_table(TsysTab **head);
 int text_entry (TsysTab **head,char *name,char *sec,int val,char *sysType, int lineNo);
 
+int createLiteralTable(litTab **head,char filepath[]);

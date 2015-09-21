@@ -12,13 +12,15 @@ int main(int argc, char **argv)
 
 	D_head =B_head= NULL;
 	T_head= NULL;
+	litTab *litHead = NULL; //head of literal Table
 	input = (char *) malloc(sizeof(char) * 70);
 	
 	fp=fopen(argv[1],"r");
 
 	if(fp==NULL)
 		printf("File Does Not Exist.");	
-       	oP_Tab_main();
+	
+       	oP_Tab_main(); //call to akkha opCode table generation without any parameters
 	while(!feof(fp))
 	{
 		while(fgets(input, 70, fp) != NULL)
@@ -147,5 +149,8 @@ int main(int argc, char **argv)
 		/* text_print_table(&T_head); */
 
 	fclose(fp);
+
+	//literalTable function call
+	createLiteralTable(&litHead,argv[1]);
 	return 0;
 }
