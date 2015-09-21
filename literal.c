@@ -17,6 +17,7 @@ int createLiteralTable(litTab **ppHead,char filepath[])
 			  break;
 			}
 	}
+
 //starting from next line of section .text
 
 	while(fgets(input,100,fp) != NULL){

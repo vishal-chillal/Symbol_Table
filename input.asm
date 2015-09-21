@@ -15,10 +15,11 @@ section .text
 	xor eax,eax
 	
 main:	push four
-	push four
+	push two
+	push one
 	push msg1
 	call printf
-	add esp,12
+	add esp,16
 	
 	mov eax,32
 

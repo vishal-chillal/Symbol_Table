@@ -1,160 +1,355 @@
-     1                                  section .data
-     2 00000000 4164646974696F6E20-     	msg db "Addition is %d",10,0
-     3 00000009 69732025640A00     
-     4 00000010 2564202564              	msg1 db "%d %d"
-     5 00000015 0C000000000000000C-     	NumA dq 12,12,929
-     6 0000001E 00000000000000A103-
-     7 00000027 000000000000       
-     8 0000002D 68656C6C6F00000000-     	NumB dt "hello"
-     9 00000031 00                 
-    10 00000037 0C0000000C000000A1-     	NumC dd 12,12,929
-    11 00000040 030000             
-    12                                  section .bss
-    13 00000000 <res 00000004>          	four resd 1
-    14 00000004 <res 00000002>          	two resw 1
-    15 00000006 <res 00000001>          	one resb 1
-    16                                  	
-    17                                  section .text
-    18                                  	global main
-    19                                  	extern printf,scanf
-    20 00000000 31C0                    	xor eax,eax
-    21                                  	
-    22 00000002 68[00000000]            main:	push four
-    23 00000007 68[00000000]            	push four
-    24 0000000C 68[10000000]            	push msg1
-    25 00000011 E8(00000000)            	call scanf
-    26 00000016 83C40C                  	add esp,12
-    27 00000019 B820000000              mov:	mov eax,32
+     1                                  section .text
+     2                                  	global main
+     3                                  
+     4                                  main:
+     5 00000000 6689D8                  	mov eax, ebx
+     6 00000003 6689C8                  	mov eax, ecx
+     7 00000006 6689D0                  	mov eax, edx
+     8                                  
+     9 00000009 6689C3                  	mov ebx, eax
+    10 0000000C 6689CB                  	mov ebx, ecx
+    11 0000000F 6689D3                  	mov ebx, edx
+    12                                  
+    13 00000012 6689C1                  	mov ecx, eax
+    14 00000015 6689D9                  	mov ecx, ebx
+    15 00000018 6689D1                  	mov ecx, edx
+    16                                  
+    17 0000001B 6689C2                  	mov edx, eax
+    18 0000001E 6689DA                  	mov edx, ebx
+    19 00000021 6689CA                  	mov edx, ecx
+    20                                  
+    21 00000024 89D8                    	mov ax, bx
+    22 00000026 89C8                    	mov ax, cx
+    23 00000028 89D0                    	mov ax, dx
+    24                                  
+    25 0000002A 89C3                    	mov bx, ax
+    26 0000002C 89CB                    	mov bx, cx
+    27 0000002E 89D3                    	mov bx, dx
     28                                  
-    29                                  	
-    30 0000001E 88C0                    	mov al,al 		;reg8,reg8
-    31 00000020 6689C0                  	mov ax,ax		;reg16,reg16
-    32 00000023 89C0                    	mov eax,eax		;reg32,reg32
-    33                                  
-    34 00000025 B40A                    	mov ah,10		;reg8,imm8
-    35 00000027 B30A                    	mov bl,10		;reg8,imm8
-    36 00000029 B70A                    	mov bh,10		;reg8,imm8
-    37 0000002B B10A                    	mov cl,10		;reg8,imm8
-    38 0000002D B50A                    	mov ch,10		;reg8,imm8
-    39 0000002F B20A                    	mov dl,10		;reg8,imm8
-    40 00000031 B60A                    	mov dh,10		;reg8,imm8
-    41                                  
-    42 00000033 66B80A00                	mov ax,10		;reg16,imm16
-    43 00000037 66BB0A00                	mov bx,10		;reg16,imm16
-    44 0000003B 66B90A00                	mov cx,10		;reg16,imm16
-    45 0000003F 66BA0A00                	mov dx,10		;reg16,imm16
-    46 00000043 66BE0A00                	mov si,10		;reg16,imm16
-    47 00000047 66BF0A00                	mov di,10		;reg16,imm16
-    48 0000004B 66BC0A00                	mov sp,10		;reg16,imm16
-    49 0000004F 66BD0A00                	mov bp,10		;reg16,imm16
-    50                                  
-    51 00000053 B80A000000              	mov eax,10		;reg32,imm32
-    52 00000058 BB0A000000              	mov ebx,10		;reg32,imm32
-    53 0000005D B90A000000              	mov ecx,10		;reg32,imm32
-    54 00000062 BA0A000000              	mov edx,10		;reg32,imm32
-    55 00000067 BE0A000000              	mov esi,10		;reg32,imm32
-    56 0000006C BF0A000000              	mov edi,10		;reg32,imm32
-    57 00000071 BC0A000000              	mov esp,10		;reg32,imm32
-    58 00000076 BD0A000000              	mov ebp,10		;reg32,imm32
-    59                                  
-    60 0000007B 6601C0                  	add ax,ax		;reg16,reg16
-    61 0000007E 01C0                    	add eax,eax		;reg32,reg32
-    62                                  
-    63                                  	
-    64 00000080 040A                    	add al,10		;reg8,imm8
-    65 00000082 80C40A                  	add ah,10		;reg8,imm8
-    66 00000085 80C30A                  	add bl,10		;reg8,imm8
-    67 00000088 80C70A                  m:	add bh,10		;reg8,imm8
-    68 0000008B 80C10A                  	add cl,10		;reg8,imm8
-    69 0000008E 80C50A                  	add ch,10		;reg8,imm8
-    70 00000091 80C20A                  	add dl,10		;reg8,imm8
-    71 00000094 80C60A                  m1:	add dh,10		;reg8,imm8
+    29 00000030 89C1                    	mov cx, ax
+    30 00000032 89D9                    	mov cx, bx
+    31 00000034 89D1                    	mov cx, dx
+    32                                  
+    33 00000036 89C2                    	mov dx, ax
+    34 00000038 89DA                    	mov dx, bx
+    35 0000003A 89CA                    	mov dx, cx
+    36                                  
+    37 0000003C 88D8                    	mov al, bl
+    38 0000003E 88C8                    	mov al, cl
+    39 00000040 88D0                    	mov al, dl
+    40                                  
+    41 00000042 88F8                    	mov al, bh
+    42 00000044 88E8                    	mov al, ch
+    43 00000046 88F0                    	mov al, dh
+    44                                  
+    45 00000048 88DC                    	mov ah, bl
+    46 0000004A 88CC                    	mov ah, cl
+    47 0000004C 88D4                    	mov ah, dl
+    48                                  
+    49 0000004E 88FC                    	mov ah, bh
+    50 00000050 88EC                    	mov ah, ch
+    51 00000052 88F4                    	mov ah, dh
+    52                                  
+    53 00000054 88C3                    	mov bl, al
+    54 00000056 88CB                    	mov bl, cl
+    55 00000058 88D3                    	mov bl, dl
+    56                                  
+    57 0000005A 88E3                    	mov bl, ah
+    58 0000005C 88EB                    	mov bl, ch
+    59 0000005E 88F3                    	mov bl, dh
+    60                                  
+    61 00000060 88C7                    	mov bh, al
+    62 00000062 88CF                    	mov bh, cl
+    63 00000064 88D7                    	mov bh, dl
+    64                                  
+    65 00000066 88E7                    	mov bh, ah
+    66 00000068 88EF                    	mov bh, ch
+    67 0000006A 88F7                    	mov bh, dh
+    68                                  
+    69 0000006C 88C1                    	mov cl, al
+    70 0000006E 88D9                    	mov cl, bl
+    71 00000070 88D1                    	mov cl, dl
     72                                  
-    73 00000097 6683C00A                	add ax,10		;reg16,imm16
-    74 0000009B 6683C30A                m3:	add bx,10		;reg16,imm16
-    75 0000009F 6683C10A                	add cx,10		;reg16,imm16
-    76 000000A3 6683C20A                	add dx,10		;reg16,imm16
-    77 000000A7 6683C60A                	add si,10		;reg16,imm16
-    78 000000AB 6683C70A                	add di,10		;reg16,imm16
-    79 000000AF 6683C40A                m4:	add sp,10		;reg16,imm16
-    80 000000B3 6683C50A                	add bp,10		;reg16,imm16
-    81                                  
-    82 000000B7 83C00A                  	add eax,10		;reg32,imm32
-    83 000000BA 83C30A                  	add ebx,10		;reg32,imm32
-    84 000000BD 83C10A                  	add ecx,10		;reg32,imm32
-    85 000000C0 83C20A                  	add edx,10		;reg32,imm32
-    86 000000C3 83C60A                  	add esi,10		;reg32,imm32
-    87 000000C6 83C70A                  	add edi,10		;reg32,imm32
-    88 000000C9 83C40A                  	add esp,10		;reg32,imm32
-    89 000000CC 83C50A                  	add ebp,10		;reg32,imm32
-    90                                  
-    91                                  	
-    92 000000CF 28C0                    	sub al,al 		;reg8,reg8
-    93 000000D1 6629C0                  	sub ax,ax		;reg16,reg16
-    94 000000D4 29C0                    	sub eax,eax		;reg32,reg32
-    95 000000D6 2C0A                    	sub al,10		;reg8,imm8
-    96 000000D8 6683E80A                	sub ax,10		;reg16,imm16
-    97 000000DC 83E80A                  	sub eax,10		;reg32,imm32
-    98                                  		
-    99 000000DF 30C0                    	xor al,al 		;reg8,reg8
-   100 000000E1 6631C0                  	xor ax,ax		;reg16,reg16
-   101 000000E4 31C0                    	xor eax,eax		;reg32,reg32
-   102 000000E6 340A                    	xor al,10		;reg8,imm8
-   103 000000E8 6683F00A                	xor ax,10		;reg16,imm16
-   104 000000EC 83F00A                  	xor eax,10		;reg32,imm32
-   105 000000EF 08C0                    	or al,al 		;reg8,reg8
-   106 000000F1 6609C0                  	or ax,ax		;reg16,reg16
-   107 000000F4 09C0                    	or eax,eax		;reg32,reg32
-   108 000000F6 0C0A                    	or al,10		;reg8,imm8
-   109 000000F8 6683C80A                	or ax,10		;reg16,imm16
-   110 000000FC 83C80A                  	or eax,10		;reg32,imm32
-   111                                  	
-   112 000000FF 20C0                    	and al,al 		;reg8,reg8
-   113 00000101 6621C0                  	and ax,ax		;reg16,reg16
-   114 00000104 21C0                    	and eax,eax		;reg32,reg32
-   115 00000106 240A                    	and al,10		;reg8,imm8
-   116 00000108 6683E00A                	and ax,10		;reg16,imm16
-   117 0000010C 83E00A                  	and eax,10		;reg32,imm32
-   118                                  
-   119 0000010F 38C0                    	cmp al,al 		;reg8,reg8
-   120 00000111 6639C0                  	cmp ax,ax		;reg16,reg16
-   121 00000114 39C0                    	cmp eax,eax		;reg32,reg32
-   122 00000116 3C0A                    	cmp al,10		;reg8,imm8
-   123 00000118 6683F80A                	cmp ax,10		;reg16,imm16
-   124 0000011C 83F80A                  	cmp eax,10		;reg32,imm32
-   125                                  
-   126 0000011F F6E0                    	mul al			;reg8
-   127 00000121 66F7E0                  	mul ax			;reg16
-   128 00000124 F7E0                    	mul eax			;reg32
-   129 00000126 F6E3                    	mul bl			;reg8
-   130 00000128 66F7E3                  	mul bx			;reg16
-   131 0000012B F7E3                    	mul ebx			;reg32
-   132 0000012D F6E1                    	mul cl			;reg8
-   133 0000012F 66F7E1                  	mul cx			;reg16
-   134 00000132 F7E1                    	mul ecx			;reg32
-   135                                  
-   136                                  		
-   137 00000134 F6F0                    	div al			;reg8
-   138 00000136 66F7F0                  	div ax			;reg16
-   139 00000139 F7F0                    	div eax			;reg32
-   140 0000013B F6D8                    	neg al			;reg8
-   141 0000013D 66F7D8                  	neg ax			;reg16
-   142 00000140 F7D8                    	neg eax			;reg32
-   143                                  
-   144 00000142 F6D0                    	not al			;reg8
-   145 00000144 66F7D0                  	not ax			;reg16
-   146 00000147 F7D0                    	not eax			;reg32
-   147                                  
-   148 00000149 FEC0                    	inc al			;reg8
-   149 0000014B 6640                    	inc ax			;reg16
-   150 0000014D 40                      	inc eax			;reg32
-   151                                  
-   152 0000014E FEC8                    	dec al			;reg8
-   153 00000150 6648                    	dec ax			;reg16
-   154 00000152 48                      	dec eax			;reg32
-   155                                  
-   156 00000153 50                      	push eax
-   157 00000154 68[00000000]            	push msg
-   158 00000159 E8(00000000)            	call printf
-   159 0000015E 83C408                  	add esp,8
-   160 00000161 C3                      	ret
+    73 00000072 88E1                    	mov cl, ah
+    74 00000074 88F9                    	mov cl, bh
+    75 00000076 88F1                    	mov cl, dh
+    76                                  
+    77 00000078 88C5                    	mov ch, al
+    78 0000007A 88DD                    	mov ch, bl
+    79 0000007C 88D5                    	mov ch, dl
+    80                                  
+    81 0000007E 88E5                    	mov ch, ah
+    82 00000080 88FD                    	mov ch, bh
+    83 00000082 88F5                    	mov ch, dh
+    84                                  
+    85 00000084 88C2                    	mov dl, al
+    86 00000086 88DA                    	mov dl, bl
+    87 00000088 88CA                    	mov dl, cl
+    88                                  
+    89 0000008A 88E2                    	mov dl, ah
+    90 0000008C 88FA                    	mov dl, bh
+    91 0000008E 88EA                    	mov dl, ch
+    92                                  
+    93 00000090 88C6                    	mov dh, al
+    94 00000092 88DE                    	mov dh, bl
+    95 00000094 88CE                    	mov dh, cl
+    96                                  
+    97 00000096 88E6                    	mov dh, ah
+    98 00000098 88FE                    	mov dh, bh
+    99 0000009A 88EE                    	mov dh, ch
+   100                                  
+   101 0000009C 6601D8                  	add eax, ebx
+   102 0000009F 6601C8                  	add eax, ecx
+   103 000000A2 6601D0                  	add eax, edx
+   104                                  
+   105 000000A5 6601C3                  	add ebx, eax
+   106 000000A8 6601CB                  	add ebx, ecx
+   107 000000AB 6601D3                  	add ebx, edx
+   108                                  
+   109 000000AE 6601C1                  	add ecx, eax
+   110 000000B1 6601D9                  	add ecx, ebx
+   111 000000B4 6601D1                  	add ecx, edx
+   112                                  
+   113 000000B7 6601C2                  	add edx, eax
+   114 000000BA 6601DA                  	add edx, ebx
+   115 000000BD 6601CA                  	add edx, ecx
+   116                                  
+   117 000000C0 01D8                    	add ax, bx
+   118 000000C2 01C8                    	add ax, cx
+   119 000000C4 01D0                    	add ax, dx
+   120                                  
+   121 000000C6 01C3                    	add bx, ax
+   122 000000C8 01CB                    	add bx, cx
+   123 000000CA 01D3                    	add bx, dx
+   124                                  
+   125 000000CC 01C1                    	add cx, ax
+   126 000000CE 01D9                    	add cx, bx
+   127 000000D0 01D1                    	add cx, dx
+   128                                  
+   129 000000D2 01C2                    	add dx, ax
+   130 000000D4 01DA                    	add dx, bx
+   131 000000D6 01CA                    	add dx, cx
+   132                                  
+   133 000000D8 00D8                    	add al, bl
+   134 000000DA 00C8                    	add al, cl
+   135 000000DC 00D0                    	add al, dl
+   136                                  
+   137 000000DE 00F8                    	add al, bh
+   138 000000E0 00E8                    	add al, ch
+   139 000000E2 00F0                    	add al, dh
+   140                                  
+   141 000000E4 00DC                    	add ah, bl
+   142 000000E6 00CC                    	add ah, cl
+   143 000000E8 00D4                    	add ah, dl
+   144                                  
+   145 000000EA 00FC                    	add ah, bh
+   146 000000EC 00EC                    	add ah, ch
+   147 000000EE 00F4                    	add ah, dh
+   148                                  
+   149 000000F0 00C3                    	add bl, al
+   150 000000F2 00CB                    	add bl, cl
+   151 000000F4 00D3                    	add bl, dl
+   152                                  
+   153 000000F6 00E3                    	add bl, ah
+   154 000000F8 00EB                    	add bl, ch
+   155 000000FA 00F3                    	add bl, dh
+   156                                  
+   157 000000FC 00C7                    	add bh, al
+   158 000000FE 00CF                    	add bh, cl
+   159 00000100 00D7                    	add bh, dl
+   160                                  
+   161 00000102 00E7                    	add bh, ah
+   162 00000104 00EF                    	add bh, ch
+   163 00000106 00F7                    	add bh, dh
+   164                                  
+   165 00000108 00C1                    	add cl, al
+   166 0000010A 00D9                    	add cl, bl
+   167 0000010C 00D1                    	add cl, dl
+   168                                  
+   169 0000010E 00E1                    	add cl, ah
+   170 00000110 00F9                    	add cl, bh
+   171 00000112 00F1                    	add cl, dh
+   172                                  
+   173 00000114 00C5                    	add ch, al
+   174 00000116 00DD                    	add ch, bl
+   175 00000118 00D5                    	add ch, dl
+   176                                  
+   177 0000011A 00E5                    	add ch, ah
+   178 0000011C 00FD                    	add ch, bh
+   179 0000011E 00F5                    	add ch, dh
+   180                                  
+   181 00000120 00C2                    	add dl, al
+   182 00000122 00DA                    	add dl, bl
+   183 00000124 00CA                    	add dl, cl
+   184                                  
+   185 00000126 00E2                    	add dl, ah
+   186 00000128 00FA                    	add dl, bh
+   187 0000012A 00EA                    	add dl, ch
+   188                                  
+   189 0000012C 00C6                    	add dh, al
+   190 0000012E 00DE                    	add dh, bl
+   191 00000130 00CE                    	add dh, cl
+   192                                  
+   193 00000132 00E6                    	add dh, ah
+   194 00000134 00FE                    	add dh, bh
+   195 00000136 00EE                    	add dh, ch
+   196                                  
+   197 00000138 6629D8                  	sub eax, ebx
+   198 0000013B 6629C8                  	sub eax, ecx
+   199 0000013E 6629D0                  	sub eax, edx
+   200                                  
+   201 00000141 6629C3                  	sub ebx, eax
+   202 00000144 6629CB                  	sub ebx, ecx
+   203 00000147 6629D3                  	sub ebx, edx
+   204                                  
+   205 0000014A 6629C1                  	sub ecx, eax
+   206 0000014D 6629D9                  	sub ecx, ebx
+   207 00000150 6629D1                  	sub ecx, edx
+   208                                  
+   209 00000153 6629C2                  	sub edx, eax
+   210 00000156 6629DA                  	sub edx, ebx
+   211 00000159 6629CA                  	sub edx, ecx
+   212                                  
+   213 0000015C 29D8                    	sub ax, bx
+   214 0000015E 29C8                    	sub ax, cx
+   215 00000160 29D0                    	sub ax, dx
+   216                                  
+   217 00000162 29C3                    	sub bx, ax
+   218 00000164 29CB                    	sub bx, cx
+   219 00000166 29D3                    	sub bx, dx
+   220                                  
+   221 00000168 29C1                    	sub cx, ax
+   222 0000016A 29D9                    	sub cx, bx
+   223 0000016C 29D1                    	sub cx, dx
+   224                                  
+   225 0000016E 29C2                    	sub dx, ax
+   226 00000170 29DA                    	sub dx, bx
+   227 00000172 29CA                    	sub dx, cx
+   228                                  
+   229 00000174 28D8                    	sub al, bl
+   230 00000176 28C8                    	sub al, cl
+   231 00000178 28D0                    	sub al, dl
+   232                                  
+   233 0000017A 28F8                    	sub al, bh
+   234 0000017C 28E8                    	sub al, ch
+   235 0000017E 28F0                    	sub al, dh
+   236                                  
+   237 00000180 28DC                    	sub ah, bl
+   238 00000182 28CC                    	sub ah, cl
+   239 00000184 28D4                    	sub ah, dl
+   240                                  
+   241 00000186 28FC                    	sub ah, bh
+   242 00000188 28EC                    	sub ah, ch
+   243 0000018A 28F4                    	sub ah, dh
+   244                                  
+   245 0000018C 28C3                    	sub bl, al
+   246 0000018E 28CB                    	sub bl, cl
+   247 00000190 28D3                    	sub bl, dl
+   248                                  
+   249 00000192 28E3                    	sub bl, ah
+   250 00000194 28EB                    	sub bl, ch
+   251 00000196 28F3                    	sub bl, dh
+   252                                  
+   253 00000198 28C7                    	sub bh, al
+   254 0000019A 28CF                    	sub bh, cl
+   255 0000019C 28D7                    	sub bh, dl
+   256                                  
+   257 0000019E 28E7                    	sub bh, ah
+   258 000001A0 28EF                    	sub bh, ch
+   259 000001A2 28F7                    	sub bh, dh
+   260                                  
+   261 000001A4 28C1                    	sub cl, al
+   262 000001A6 28D9                    	sub cl, bl
+   263 000001A8 28D1                    	sub cl, dl
+   264                                  
+   265 000001AA 28E1                    	sub cl, ah
+   266 000001AC 28F9                    	sub cl, bh
+   267 000001AE 28F1                    	sub cl, dh
+   268                                  
+   269 000001B0 28C5                    	sub ch, al
+   270 000001B2 28DD                    	sub ch, bl
+   271 000001B4 28D5                    	sub ch, dl
+   272                                  
+   273 000001B6 28E5                    	sub ch, ah
+   274 000001B8 28FD                    	sub ch, bh
+   275 000001BA 28F5                    	sub ch, dh
+   276                                  
+   277 000001BC 28C2                    	sub dl, al
+   278 000001BE 28DA                    	sub dl, bl
+   279 000001C0 28CA                    	sub dl, cl
+   280                                  
+   281 000001C2 28E2                    	sub dl, ah
+   282 000001C4 28FA                    	sub dl, bh
+   283 000001C6 28EA                    	sub dl, ch
+   284                                  
+   285 000001C8 28C6                    	sub dh, al
+   286 000001CA 28DE                    	sub dh, bl
+   287 000001CC 28CE                    	sub dh, cl
+   288                                  
+   289 000001CE 28E6                    	sub dh, ah
+   290 000001D0 28FE                    	sub dh, bh
+   291 000001D2 28EE                    	sub dh, ch
+   292                                  
+   293 000001D4 66F7E0                  	mul eax
+   294                                  
+   295 000001D7 66F7E3                  	mul ebx
+   296                                  
+   297 000001DA 66F7E1                  	mul ecx
+   298                                  
+   299 000001DD 66F7E2                  	mul edx
+   300                                  
+   301 000001E0 F7E0                    	mul ax
+   302                                  
+   303 000001E2 F7E3                    	mul bx
+   304                                  
+   305 000001E4 F7E1                    	mul cx
+   306                                  
+   307 000001E6 F7E2                    	mul dx
+   308                                  
+   309 000001E8 F6E0                    	mul al
+   310                                  
+   311 000001EA F6E4                    	mul ah
+   312                                  
+   313 000001EC F6E3                    	mul bl
+   314                                  
+   315 000001EE F6E7                    	mul bh
+   316                                  
+   317 000001F0 F6E1                    	mul cl
+   318                                  
+   319 000001F2 F6E5                    	mul ch
+   320                                  
+   321 000001F4 F6E2                    	mul dl
+   322                                  
+   323 000001F6 F6E6                    	mul dh
+   324                                  
+   325 000001F8 66F7F0                  	div eax
+   326                                  
+   327 000001FB 66F7F3                  	div ebx
+   328                                  
+   329 000001FE 66F7F1                  	div ecx
+   330                                  
+   331 00000201 66F7F2                  	div edx
+   332                                  
+   333 00000204 F7F0                    	div ax
+   334                                  
+   335 00000206 F7F3                    	div bx
+   336                                  
+   337 00000208 F7F1                    	div cx
+   338                                  
+   339 0000020A F7F2                    	div dx
+   340                                  
+   341 0000020C F6F0                    	div al
+   342                                  
+   343 0000020E F6F4                    	div ah
+   344                                  
+   345 00000210 F6F3                    	div bl
+   346                                  
+   347 00000212 F6F7                    	div bh
+   348                                  
+   349 00000214 F6F1                    	div cl
+   350                                  
+   351 00000216 F6F5                    	div ch
+   352                                  
+   353 00000218 F6F2                    	div dl
+   354                                  
+   355 0000021A F6F6                    	div dh

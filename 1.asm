@@ -15,7 +15,7 @@ section .text
 	extern printf,scanf
 	xor eax,eax
 	
-main:	push four
+main:	push two
 	push four
 
 mov:	mov eax,32

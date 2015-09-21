@@ -48,3 +48,4 @@ int createLiteralTable(litTab **head,char filepath[]);
 int insert(litTab **head,char *literal );
 
 int checkRepeat(sysTab **pHead, char *name);
+int replaceWithOpcodes(char filepath[]);

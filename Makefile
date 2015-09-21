@@ -1,5 +1,5 @@
-exe : FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o 
-	 gcc -o exe FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o 
+exe : FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o replaceWithOpcodes.o 
+	 gcc -o exe FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o replaceWithOpcodes.o 
 
 litTable.o : litTable.c
 	gcc -Wall -g -c litTable.c
@@ -21,6 +21,8 @@ FileHandling.o : FileHandling.c
 	gcc -Wall -g -c FileHandling.c 
 checkRepeat.o : checkRepeat.c
 	gcc -Wall -g -c checkRepeat.c 
+replaceWithOpcodes.o:replaceWithOpcodes.c
+	gcc -Wall -g -c replaceWithOpcodes.c
 
 clear :
 	rm *~ *.o  exe
