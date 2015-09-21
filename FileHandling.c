@@ -1,0 +1,151 @@
+#include <stdio.h>
+#include "struct.h"
+
+int main(int argc, char **argv)
+{
+	FILE *fp;
+	char *input,*str1, *str2, *token, *subtoken, *type, *temp;
+	char *saveptr1, *saveptr2, *buffer;
+	int j, sectionIdentifier, count=0, i;
+	sysTab *D_head, *B_head;
+	TsysTab *T_head;
+
+	D_head =B_head= NULL;
+	T_head= NULL;
+	input = (char *) malloc(sizeof(char) * 70);
+	
+	fp=fopen(argv[1],"r");
+
+	if(fp==NULL)
+		printf("File Does Not Exist.");	
+       	oP_Tab_main();
+	while(!feof(fp))
+	{
+		while(fgets(input, 70, fp) != NULL)
+		{
+			if(input[0]!=';')
+			{
+				count++;
+				str1=(char*)malloc(sizeof(char)*(strlen(input)+1));
+
+				buffer=(char*)malloc(sizeof(char)*(strlen(input)+1));
+
+				strcpy(str1,input);
+				str1 = strtok(str1,";");
+
+				if (str1 == NULL)
+					break;
+				/////////////
+
+				token = strtok_r(str1, " \t", &saveptr2);
+
+				if (strcmp(token,"section")==0)
+				{
+					str2 = NULL;
+
+					for (; ;str2 = NULL)
+					{
+						subtoken = strtok_r(str2, "\n", &saveptr2);
+						if (subtoken == NULL)
+							break;
+						//////////
+
+						if (strcmp(subtoken,".data")==0)
+						{
+							sectionIdentifier = 0;
+							printf(" %s\n", subtoken);
+							break;
+						}
+
+						else if (strcmp(subtoken,".bss")==0)
+						{
+							sectionIdentifier = 1;
+							printf(" %s\n",subtoken);
+							break;
+						}
+
+						else if (strcmp(subtoken,".text")==0)
+						{
+							sectionIdentifier = 2;
+							printf(" %s\n",subtoken);
+							break;
+						}
+					}
+				}
+
+
+				if(sectionIdentifier == 0 && strcmp(token,"section")!=0 && strcmp(token,"\n")!=0 && strcmp(token,"\t\n")!=0)
+				{
+				        str2 = NULL;
+					type=(char*)malloc(sizeof(char)*(3+1));
+					
+					temp=strtok_r(str2," ",&saveptr2);
+					strncpy(type,temp,2);		
+					if(strlen(temp)>2)
+					  {
+					    saveptr1=strtok_r(temp,"\n",&saveptr2);
+					    strncpy(buffer,&saveptr1[2],(strlen(saveptr1)-2));
+					  }
+					else
+					  {
+					    str1= NULL;
+					    buffer=strtok_r(str1,"\n",&saveptr2);
+					  }
+					addEntry(&D_head,token,subtoken,buffer,type,count);
+				}
+
+				else if(sectionIdentifier == 1 && strcmp(token,"section")!=0  && strcmp(token,"\n")!=0 && strcmp(token,"\t\n")!=0)
+				{
+					str1 = NULL;
+					saveptr1 = strtok_r(str1, " ", &saveptr2);
+
+					type = (char *)malloc(sizeof(char) * 5);
+
+					strncpy(type, saveptr1, 4);
+
+					buffer = strtok_r(str1,"\n", &saveptr2);
+					
+					addEntry(&B_head,token,subtoken,buffer,type,count);
+				}
+
+				else if(sectionIdentifier == 2 && strcmp(token,"section")!=0 && strcmp(token,"\n")!=0 && strcmp(token,"\t\n")!=0)
+				{
+					j=strlen(str1);
+
+					while(j>=0)
+					{
+						if(str1[j]==':')
+							break;
+						else
+							j--;
+					}
+					//////////////////////////////////////////////////////
+					if(j >= 0)
+					  {			   
+					  token = strtok_r(str1, ":\t",&saveptr1);
+						if(token != NULL)
+						  text_entry(&T_head,token,subtoken,0,"lable",count);
+						if(strcmp(token,"main")==0)
+						   i = 0;
+					  }
+					else
+					  {
+					    i++;
+					    
+					  }
+					////////////////////////////////////////////////
+				}
+			}
+		}	
+
+		free(input);
+		input = (char *) malloc(sizeof(char) * 70);
+	}
+
+		/* print_table(&D_head); */
+		/* print_table(&B_head); */
+		/* text_print_table(&T_head); */
+
+	fclose(fp);
+	return 0;
+}

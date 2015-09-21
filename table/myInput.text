@@ -1,0 +1,354 @@
+     1 section .data
+     2 00000000 4164646974696F6E20-     	msg db "Addition is %d",10,0
+     3 00000009 69732025640A00     
+     4 00000010 2564202564              	msg1 db "%d %d"
+     5 00000015 0C000000000000000C-     	NumA dq 12,12,929
+     6 0000001E 00000000000000A103-
+     7 00000027 000000000000       
+     8 0000002D 68656C6C6F00000000-     	NumB dt "hello"
+     9 00000031 00                 
+    10 00000037 0C0000000C000000A1-     	NumC dd 12,12,929
+    11 00000040 030000             
+    12                                  section .bss
+    13 00000000 <res 00000004>          	four resd 1
+    14 00000004 <res 00000002>          	two resw 1
+    15 00000006 <res 00000001>          	one resb 1
+    16                                  	
+    17                                  section .text
+    18                                  	global main
+    19                                  	extern printf,scanf
+    20 00000000 31C0                    	xor eax,eax
+    21                                  	
+    22 00000002 68[00000000]            main:	push four
+    23 00000007 68[00000000]            	push four
+    24 0000000C 68[10000000]            	push msg1
+    25 00000011 E8(00000000)            	call scanf
+    26 00000016 83C40C                  	add esp,12
+    27 00000019 B820000000              mov:	mov eax,32
+    28                                  
+    29                                  	
+    30 0000001E 88C0                    	mov al,al 		;reg8,reg8
+    31 00000020 6689C0                  	mov ax,ax		;reg16,reg16
+    32 00000023 89C0                    	mov eax,eax		;reg32,reg32
+    33                                  
+    34 00000025 A0[06000000]            	mov al,byte[one]	;reg8,mem8
+    35 0000002A 8A25[06000000]          	mov ah,byte[one]	;reg8,mem8
+    36 00000030 8A1D[06000000]          	mov bl,byte[one]	;reg8,mem8
+    37 00000036 8A3D[06000000]          	mov bh,byte[one]	;reg8,mem8
+    38 0000003C 8A0D[06000000]          	mov cl,byte[one]	;reg8,mem8
+    39 00000042 8A2D[06000000]          	mov ch,byte[one]	;reg8,mem8
+    40 00000048 8A15[06000000]          	mov dl,byte[one]	;reg8,mem8
+    41 0000004E 8A25[06000000]          	mov ah,byte[one]	;reg8,mem8
+    42                                  
+    43 00000054 66A1[04000000]          	mov ax,word[two]	;reg16,mem16
+    44 0000005A 668B1D[04000000]        	mov bx,word[two]	;reg16,mem16
+    45 00000061 668B0D[04000000]        	mov cx,word[two]	;reg16,mem16
+    46 00000068 668B15[04000000]        	mov dx,word[two]	;reg16,mem16
+    47 0000006F 668B35[04000000]        	mov si,word[two]	;reg16,mem16
+    48 00000076 668B3D[04000000]        	mov di,word[two]	;reg16,mem16
+    49 0000007D 668B25[04000000]        	mov sp,word[two]	;reg16,mem16
+    50 00000084 668B2D[04000000]        	mov bp,word[two]	;reg16,mem16
+    51                                  
+    52 0000008B A1[00000000]            	mov eax,dword[four]	;reg32,mem32
+    53 00000090 8B1D[00000000]          	mov ebx,dword[four]	;reg32,mem32
+    54 00000096 8B0D[00000000]          	mov ecx,dword[four]	;reg32,mem32
+    55 0000009C 8B15[00000000]          	mov edx,dword[four]	;reg32,mem32
+    56 000000A2 8B35[00000000]          	mov esi,dword[four]	;reg32,mem32
+    57 000000A8 8B3D[00000000]          	mov edi,dword[four]	;reg32,mem32
+    58 000000AE 8B25[00000000]          	mov esp,dword[four]	;reg32,mem32
+    59 000000B4 8B2D[00000000]          	mov ebp,dword[four]	;reg32,mem32
+    60                                  
+    61 000000BA A2[06000000]            	mov byte[one],al	;mem8,reg8
+    62 000000BF 8825[06000000]          	mov byte[one],ah	;mem8,reg8
+    63 000000C5 881D[06000000]          	mov byte[one],bl	;mem8,reg8
+    64 000000CB 883D[06000000]          	mov byte[one],bh	;mem8,reg8
+    65 000000D1 880D[06000000]          	mov byte[one],cl	;mem8,reg8
+    66 000000D7 882D[06000000]          	mov byte[one],ch	;mem8,reg8
+    67 000000DD 8815[06000000]          	mov byte[one],dl	;mem8,reg8
+    68 000000E3 8835[06000000]          	mov byte[one],dh	;mem8,reg8
+    69                                  	
+    70 000000E9 66A3[04000000]          	mov word[two],ax	;mem16,reg16
+    71 000000EF 66891D[04000000]        	mov word[two],bx	;mem16,reg16
+    72 000000F6 66890D[04000000]        	mov word[two],cx	;mem16,reg16
+    73 000000FD 668915[04000000]        	mov word[two],dx	;mem16,reg16
+    74 00000104 668935[04000000]        	mov word[two],si	;mem16,reg16
+    75 0000010B 66893D[04000000]        	mov word[two],di	;mem16,reg16
+    76 00000112 668925[04000000]        	mov word[two],sp	;mem16,reg16
+    77 00000119 66892D[04000000]        	mov word[two],bp	;mem16,reg16
+    78                                  	
+    79 00000120 A3[00000000]            	mov dword[four],eax	;mem32,reg32
+    80 00000125 891D[00000000]          	mov dword[four],ebx	;mem32,reg32
+    81 0000012B 890D[00000000]          	mov dword[four],ecx	;mem32,reg32
+    82 00000131 8915[00000000]          	mov dword[four],edx	;mem32,reg32
+    83 00000137 8935[00000000]          	mov dword[four],esi	;mem32,reg32
+    84 0000013D 893D[00000000]          	mov dword[four],edi	;mem32,reg32
+    85 00000143 8925[00000000]          	mov dword[four],esp	;mem32,reg32
+    86 00000149 892D[00000000]          	mov dword[four],ebp	;mem32,reg32
+    87                                  	
+    88 0000014F B00A                    	mov al,10		;reg8,imm8
+    89 00000151 B40A                    	mov ah,10		;reg8,imm8
+    90 00000153 B30A                    	mov bl,10		;reg8,imm8
+    91 00000155 B70A                    	mov bh,10		;reg8,imm8
+    92 00000157 B10A                    	mov cl,10		;reg8,imm8
+    93 00000159 B50A                    	mov ch,10		;reg8,imm8
+    94 0000015B B20A                    	mov dl,10		;reg8,imm8
+    95 0000015D B60A                    	mov dh,10		;reg8,imm8
+    96                                  
+    97 0000015F 66B80A00                	mov ax,10		;reg16,imm16
+    98 00000163 66BB0A00                	mov bx,10		;reg16,imm16
+    99 00000167 66B90A00                	mov cx,10		;reg16,imm16
+   100 0000016B 66BA0A00                	mov dx,10		;reg16,imm16
+   101 0000016F 66BE0A00                	mov si,10		;reg16,imm16
+   102 00000173 66BF0A00                	mov di,10		;reg16,imm16
+   103 00000177 66BC0A00                	mov sp,10		;reg16,imm16
+   104 0000017B 66BD0A00                	mov bp,10		;reg16,imm16
+   105                                  
+   106 0000017F B80A000000              	mov eax,10		;reg32,imm32
+   107 00000184 BB0A000000              	mov ebx,10		;reg32,imm32
+   108 00000189 B90A000000              	mov ecx,10		;reg32,imm32
+   109 0000018E BA0A000000              	mov edx,10		;reg32,imm32
+   110 00000193 BE0A000000              	mov esi,10		;reg32,imm32
+   111 00000198 BF0A000000              	mov edi,10		;reg32,imm32
+   112 0000019D BC0A000000              	mov esp,10		;reg32,imm32
+   113 000001A2 BD0A000000              	mov ebp,10		;reg32,imm32
+   114                                  
+   115 000001A7 C605[06000000]0A        	mov byte[one],10	;mem8,imm8
+   116 000001AE 66C705[04000000]0A-     	mov word[two],10	;mem16,imm16
+   117 000001B6 00                 
+   118 000001B7 C705[00000000]0A00-     	mov dword[four],10	;mem32,imm32
+   119 000001BF 0000               
+   120                                  
+   121                                  	
+   122 000001C1 00C0                    	add al,al 		;reg8,reg8
+   123 000001C3 6601C0                  	add ax,ax		;reg16,reg16
+   124 000001C6 01C0                    	add eax,eax		;reg32,reg32
+   125                                  
+   126 000001C8 0205[06000000]          	add al,byte[one]	;reg8,mem8
+   127 000001CE 0225[06000000]          	add ah,byte[one]	;reg8,mem8
+   128 000001D4 021D[06000000]          	add bl,byte[one]	;reg8,mem8
+   129 000001DA 023D[06000000]          	add bh,byte[one]	;reg8,mem8
+   130 000001E0 020D[06000000]          	add cl,byte[one]	;reg8,mem8
+   131 000001E6 022D[06000000]          	add ch,byte[one]	;reg8,mem8
+   132 000001EC 0215[06000000]          	add dl,byte[one]	;reg8,mem8
+   133 000001F2 0225[06000000]          	add ah,byte[one]	;reg8,mem8
+   134                                  
+   135 000001F8 660305[04000000]        	add ax,word[two]	;reg16,mem16
+   136 000001FF 66031D[04000000]        	add bx,word[two]	;reg16,mem16
+   137 00000206 66030D[04000000]        	add cx,word[two]	;reg16,mem16
+   138 0000020D 660315[04000000]        	add dx,word[two]	;reg16,mem16
+   139 00000214 660335[04000000]        	add si,word[two]	;reg16,mem16
+   140 0000021B 66033D[04000000]        	add di,word[two]	;reg16,mem16
+   141 00000222 660325[04000000]        	add sp,word[two]	;reg16,mem16
+   142 00000229 66032D[04000000]        	add bp,word[two]	;reg16,mem16
+   143                                  
+   144 00000230 0305[00000000]          	add eax,dword[four]	;reg32,mem32
+   145 00000236 031D[00000000]          	add ebx,dword[four]	;reg32,mem32
+   146 0000023C 030D[00000000]          	add ecx,dword[four]	;reg32,mem32
+   147 00000242 0315[00000000]          	add edx,dword[four]	;reg32,mem32
+   148 00000248 0335[00000000]          	add esi,dword[four]	;reg32,mem32
+   149 0000024E 033D[00000000]          	add edi,dword[four]	;reg32,mem32
+   150 00000254 0325[00000000]          	add esp,dword[four]	;reg32,mem32
+   151 0000025A 032D[00000000]          	add ebp,dword[four]	;reg32,mem32
+   152                                  
+   153 00000260 0005[06000000]          	add byte[one],al	;mem8,reg8
+   154 00000266 0025[06000000]          	add byte[one],ah	;mem8,reg8
+   155 0000026C 001D[06000000]          	add byte[one],bl	;mem8,reg8
+   156 00000272 003D[06000000]          	add byte[one],bh	;mem8,reg8
+   157 00000278 000D[06000000]          	add byte[one],cl	;mem8,reg8
+   158 0000027E 002D[06000000]          	add byte[one],ch	;mem8,reg8
+   159 00000284 0015[06000000]          	add byte[one],dl	;mem8,reg8
+   160 0000028A 0035[06000000]          	add byte[one],dh	;mem8,reg8
+   161                                  	
+   162 00000290 660105[04000000]        	add word[two],ax	;mem16,reg16
+   163 00000297 66011D[04000000]        	add word[two],bx	;mem16,reg16
+   164 0000029E 66010D[04000000]        	add word[two],cx	;mem16,reg16
+   165 000002A5 660115[04000000]        	add word[two],dx	;mem16,reg16
+   166 000002AC 660135[04000000]        	add word[two],si	;mem16,reg16
+   167 000002B3 66013D[04000000]        	add word[two],di	;mem16,reg16
+   168 000002BA 660125[04000000]        	add word[two],sp	;mem16,reg16
+   169 000002C1 66012D[04000000]        	add word[two],bp	;mem16,reg16
+   170                                  	
+   171 000002C8 0105[00000000]          	add dword[four],eax	;mem32,reg32
+   172 000002CE 011D[00000000]          	add dword[four],ebx	;mem32,reg32
+   173 000002D4 010D[00000000]          	add dword[four],ecx	;mem32,reg32
+   174 000002DA 0115[00000000]          	add dword[four],edx	;mem32,reg32
+   175 000002E0 0135[00000000]          	add dword[four],esi	;mem32,reg32
+   176 000002E6 013D[00000000]          	add dword[four],edi	;mem32,reg32
+   177 000002EC 0125[00000000]          	add dword[four],esp	;mem32,reg32
+   178 000002F2 012D[00000000]          	add dword[four],ebp	;mem32,reg32
+   179                                  	
+   180 000002F8 040A                    	add al,10		;reg8,imm8
+   181 000002FA 80C40A                  	add ah,10		;reg8,imm8
+   182 000002FD 80C30A                  	add bl,10		;reg8,imm8
+   183 00000300 80C70A                  	add bh,10		;reg8,imm8
+   184 00000303 80C10A                  	add cl,10		;reg8,imm8
+   185 00000306 80C50A                  	add ch,10		;reg8,imm8
+   186 00000309 80C20A                  	add dl,10		;reg8,imm8
+   187 0000030C 80C60A                  	add dh,10		;reg8,imm8
+   188                                  
+   189 0000030F 6683C00A                	add ax,10		;reg16,imm16
+   190 00000313 6683C30A                	add bx,10		;reg16,imm16
+   191 00000317 6683C10A                	add cx,10		;reg16,imm16
+   192 0000031B 6683C20A                	add dx,10		;reg16,imm16
+   193 0000031F 6683C60A                	add si,10		;reg16,imm16
+   194 00000323 6683C70A                	add di,10		;reg16,imm16
+   195 00000327 6683C40A                	add sp,10		;reg16,imm16
+   196 0000032B 6683C50A                	add bp,10		;reg16,imm16
+   197                                  
+   198 0000032F 83C00A                  	add eax,10		;reg32,imm32
+   199 00000332 83C30A                  	add ebx,10		;reg32,imm32
+   200 00000335 83C10A                  	add ecx,10		;reg32,imm32
+   201 00000338 83C20A                  	add edx,10		;reg32,imm32
+   202 0000033B 83C60A                  	add esi,10		;reg32,imm32
+   203 0000033E 83C70A                  	add edi,10		;reg32,imm32
+   204 00000341 83C40A                  	add esp,10		;reg32,imm32
+   205 00000344 83C50A                  	add ebp,10		;reg32,imm32
+   206                                  
+   207 00000347 8005[06000000]0A        	add byte[one],10	;mem8,imm8
+   208 0000034E 668305[04000000]0A      	add word[two],10	;mem16,imm16
+   209 00000356 8305[00000000]0A        	add dword[four],10	;mem32,imm32
+   210                                  
+   211                                  	
+   212 0000035D 28C0                    	sub al,al 		;reg8,reg8
+   213 0000035F 6629C0                  	sub ax,ax		;reg16,reg16
+   214 00000362 29C0                    	sub eax,eax		;reg32,reg32
+   215 00000364 2A05[06000000]          	sub al,byte[one]	;reg8,mem8
+   216 0000036A 662B05[04000000]        	sub ax,word[two]	;reg16,mem16
+   217 00000371 2B05[00000000]          	sub eax,dword[four]	;reg32,mem32
+   218 00000377 2805[06000000]          	sub byte[one],al	;mem8,reg8
+   219 0000037D 662905[04000000]        	sub word[two],ax	;mem16,reg16
+   220 00000384 2905[00000000]          	sub dword[four],eax	;mem32,reg32
+   221 0000038A 2C0A                    	sub al,10		;reg8,imm8
+   222 0000038C 6683E80A                	sub ax,10		;reg16,imm16
+   223 00000390 83E80A                  	sub eax,10		;reg32,imm32
+   224 00000393 802D[06000000]0A        	sub byte[one],10	;mem8,imm8
+   225 0000039A 66832D[04000000]0A      	sub word[two],10	;mem16,imm16
+   226 000003A2 832D[00000000]0A        	sub dword[four],10	;mem32,imm32
+   227                                  
+   228                                  	
+   229 000003A9 30C0                    	xor al,al 		;reg8,reg8
+   230 000003AB 6631C0                  	xor ax,ax		;reg16,reg16
+   231 000003AE 31C0                    	xor eax,eax		;reg32,reg32
+   232 000003B0 3205[06000000]          	xor al,byte[one]	;reg8,mem8
+   233 000003B6 663305[04000000]        	xor ax,word[two]	;reg16,mem16
+   234 000003BD 3305[00000000]          	xor eax,dword[four]	;reg32,mem32
+   235 000003C3 3005[06000000]          	xor byte[one],al	;mem8,reg8
+   236 000003C9 663105[04000000]        	xor word[two],ax	;mem16,reg16
+   237 000003D0 3105[00000000]          	xor dword[four],eax	;mem32,reg32
+   238 000003D6 340A                    	xor al,10		;reg8,imm8
+   239 000003D8 6683F00A                	xor ax,10		;reg16,imm16
+   240 000003DC 83F00A                  	xor eax,10		;reg32,imm32
+   241 000003DF 8035[06000000]0A        	xor byte[one],10	;mem8,imm8
+   242 000003E6 668335[04000000]0A      	xor word[two],10	;mem16,imm16
+   243 000003EE 8335[00000000]0A        	xor dword[four],10	;mem32,imm32
+   244                                  
+   245 000003F5 08C0                    	or al,al 		;reg8,reg8
+   246 000003F7 6609C0                  	or ax,ax		;reg16,reg16
+   247 000003FA 09C0                    	or eax,eax		;reg32,reg32
+   248 000003FC 0A05[06000000]          	or al,byte[one]		;reg8,mem8
+   249 00000402 660B05[04000000]        	or ax,word[two]		;reg16,mem16
+   250 00000409 0B05[00000000]          	or eax,dword[four]	;reg32,mem32
+   251 0000040F 0805[06000000]          	or byte[one],al		;mem8,reg8
+   252 00000415 660905[04000000]        	or word[two],ax		;mem16,reg16
+   253 0000041C 0905[00000000]          	or dword[four],eax	;mem32,reg32
+   254 00000422 0C0A                    	or al,10		;reg8,imm8
+   255 00000424 6683C80A                	or ax,10		;reg16,imm16
+   256 00000428 83C80A                  	or eax,10		;reg32,imm32
+   257 0000042B 800D[06000000]0A        	or byte[one],10		;mem8,imm8
+   258 00000432 66830D[04000000]0A      	or word[two],10		;mem16,imm16
+   259 0000043A 830D[00000000]0A        	or dword[four],10	;mem32,imm32
+   260                                  
+   261                                  	
+   262 00000441 20C0                    	and al,al 		;reg8,reg8
+   263 00000443 6621C0                  	and ax,ax		;reg16,reg16
+   264 00000446 21C0                    	and eax,eax		;reg32,reg32
+   265 00000448 2205[06000000]          	and al,byte[one]	;reg8,mem8
+   266 0000044E 662305[04000000]        	and ax,word[two]	;reg16,mem16
+   267 00000455 2305[00000000]          	and eax,dword[four]	;reg32,mem32
+   268 0000045B 2005[06000000]          	and byte[one],al	;mem8,reg8
+   269 00000461 662105[04000000]        	and word[two],ax	;mem16,reg16
+   270 00000468 2105[00000000]          	and dword[four],eax	;mem32,reg32
+   271 0000046E 240A                    	and al,10		;reg8,imm8
+   272 00000470 6683E00A                	and ax,10		;reg16,imm16
+   273 00000474 83E00A                  	and eax,10		;reg32,imm32
+   274 00000477 8025[06000000]0A        	and byte[one],10	;mem8,imm8
+   275 0000047E 668325[04000000]0A      	and word[two],10	;mem16,imm16
+   276 00000486 8325[00000000]0A        	and dword[four],10	;mem32,imm32
+   277                                  
+   278                                  
+   279 0000048D 38C0                    	cmp al,al 		;reg8,reg8
+   280 0000048F 6639C0                  	cmp ax,ax		;reg16,reg16
+   281 00000492 39C0                    	cmp eax,eax		;reg32,reg32
+   282 00000494 3A05[06000000]          	cmp al,byte[one]	;reg8,mem8
+   283 0000049A 663B05[04000000]        	cmp ax,word[two]	;reg16,mem16
+   284 000004A1 3B05[00000000]          	cmp eax,dword[four]	;reg32,mem32
+   285 000004A7 3805[06000000]          	cmp byte[one],al	;mem8,reg8
+   286 000004AD 663905[04000000]        	cmp word[two],ax	;mem16,reg16
+   287 000004B4 3905[00000000]          	cmp dword[four],eax	;mem32,reg32
+   288 000004BA 3C0A                    	cmp al,10		;reg8,imm8
+   289 000004BC 6683F80A                	cmp ax,10		;reg16,imm16
+   290 000004C0 83F80A                  	cmp eax,10		;reg32,imm32
+   291 000004C3 803D[06000000]0A        	cmp byte[one],10	;mem8,imm8
+   292 000004CA 66833D[04000000]0A      	cmp word[two],10	;mem16,imm16
+   293 000004D2 833D[00000000]0A        	cmp dword[four],10	;mem32,imm32
+   294                                  
+   295                                  
+   296 000004D9 F6E0                    	mul al			;reg8
+   297 000004DB 66F7E0                  	mul ax			;reg16
+   298 000004DE F7E0                    	mul eax			;reg32
+   299 000004E0 F6E3                    	mul bl			;reg8
+   300 000004E2 66F7E3                  	mul bx			;reg16
+   301 000004E5 F7E3                    	mul ebx			;reg32
+   302 000004E7 F6E1                    	mul cl			;reg8
+   303 000004E9 66F7E1                  	mul cx			;reg16
+   304 000004EC F7E1                    	mul ecx			;reg32
+   305                                  
+   306 000004EE F625[06000000]          	mul byte[one]		;mem8
+   307 000004F4 66F725[04000000]        	mul word[two]		;mem16
+   308 000004FB F725[00000000]          	mul dword[four]		;mem32
+   309                                  
+   310                                  	
+   311 00000501 F6F0                    	div al			;reg8
+   312 00000503 66F7F0                  	div ax			;reg16
+   313 00000506 F7F0                    	div eax			;reg32
+   314 00000508 F635[06000000]          	div byte[one]		;mem8
+   315 0000050E 66F735[04000000]        	div word[two]		;mem16
+   316 00000515 F735[00000000]          	div dword[four]		;mem32
+   317                                  
+   318 0000051B F6D8                    	neg al			;reg8
+   319 0000051D 66F7D8                  	neg ax			;reg16
+   320 00000520 F7D8                    	neg eax			;reg32
+   321 00000522 F61D[06000000]          	neg byte[one]		;mem8
+   322 00000528 66F71D[04000000]        	neg word[two]		;mem16
+   323 0000052F F71D[00000000]          	neg dword[four]		;mem32
+   324                                  
+   325                                  
+   326 00000535 F6D0                    	not al			;reg8
+   327 00000537 66F7D0                  	not ax			;reg16
+   328 0000053A F7D0                    	not eax			;reg32
+   329 0000053C F615[06000000]          	not byte[one]		;mem8
+   330 00000542 66F715[04000000]        	not word[two]		;mem16
+   331 00000549 F715[00000000]          	not dword[four]		;mem32
+   332                                  
+   333                                  
+   334 0000054F FEC0                    	inc al			;reg8
+   335 00000551 6640                    	inc ax			;reg16
+   336 00000553 40                      	inc eax			;reg32
+   337 00000554 FE05[06000000]          	inc byte[one]		;mem8
+   338 0000055A 66FF05[04000000]        	inc word[two]		;mem16
+   339 00000561 FF05[00000000]          	inc dword[four]		;mem32
+   340                                  
+   341                                  
+   342 00000567 FEC8                    	dec al			;reg8
+   343 00000569 6648                    	dec ax			;reg16
+   344 0000056B 48                      	dec eax			;reg32
+   345 0000056C FE0D[06000000]          	dec byte[one]		;mem8
+   346 00000572 66FF0D[04000000]        	dec word[two]		;mem16
+   347 00000579 FF0D[00000000]          	dec dword[four]		;mem32
+   348                                  
+   349                                  
+   350 0000057F 50                      	push eax
+   351 00000580 68[00000000]            	push msg
+   352 00000585 E8(00000000)            	call printf
+   353 0000058A 83C408                  	add esp,8
+   354      	
