@@ -11,7 +11,7 @@ int insert(litTab **ppHead,char *literal)
 	strcpy(pNwNode->op2,literal);
 	pNwNode->next = NULL;
 	pNwNode->hexVal = atoi(literal);
-	printf("\t %d",pNwNode->hexVal);
+	printf("\t %d : %.8x\n",pNwNode->hexVal,pNwNode->hexVal);
 	if(*ppHead == NULL)
 	  {
 	    *ppHead = pNwNode;
