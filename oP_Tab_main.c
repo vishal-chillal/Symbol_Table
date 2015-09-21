@@ -3,7 +3,7 @@
 int oP_Tab_main()
 {
 	FILE *fp;
-	char *input,*str1, *str2, *subtoken, *type, *temp,*saveptr2, *buffer;
+	char *input,*str1, *str2, *subtoken,*token, *type, *temp,*saveptr2, *buffer;
 	int j, count=0;
 	opcd *pHead;
 
@@ -26,7 +26,7 @@ int oP_Tab_main()
 				strcpy(str1,input);
 				/////////////
 				input = strtok(str1, ";");
-				//token = strtok_r(input, " \t",&saveptr2);
+				token = strtok_r(input, " \t",&saveptr2);
 				str2 = NULL;
 				for (; ;str2 = NULL)
 				  {
