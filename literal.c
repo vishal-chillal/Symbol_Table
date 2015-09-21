@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "struct.h"
 
-int createLiteralTable(litTab **head,char filepath[])
+int createLiteralTable(litTab **ppHead,char filepath[])
 {
 	int i,j;
 	FILE *fp;
@@ -14,9 +14,7 @@ int createLiteralTable(litTab **head,char filepath[])
 		tempStr = strtok(input,"\n");
 		if(tempStr!=NULL)
 			if(strcmp(tempStr,"section .text") == 0){
-				printf("%s\n",tempStr);
-				printf("bingo\n");
-				break;
+			  break;
 			}
 	}
 //starting from next line of section .text
@@ -38,8 +36,9 @@ int createLiteralTable(litTab **head,char filepath[])
 			}
 			saveptr =NULL;
 			if(strcmp(getNums,"\0")!=0)
-			printf("%s\n",getNums);
+			  insert(ppHead,getNums); // call to linklist of lit_table
 			getNums = NULL;
+			
 		}
 	}
 

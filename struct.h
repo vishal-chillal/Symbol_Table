@@ -30,7 +30,7 @@ typedef struct opcd
 //structure for literal table having three values
 typedef struct literal_table{
 	char *op2;
-	char *hexVal;
+	int hexVal;
 	struct literal_table *next;
 }litTab;
 
@@ -45,3 +45,4 @@ int text_print_table(TsysTab **head);
 int text_entry (TsysTab **head,char *name,char *sec,int val,char *sysType, int lineNo);
 
 int createLiteralTable(litTab **head,char filepath[]);
+int insert(litTab **head,char *literal );

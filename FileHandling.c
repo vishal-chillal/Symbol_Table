@@ -9,7 +9,7 @@ int main(int argc, char **argv)
 	int j, sectionIdentifier, count=0, i;
 	sysTab *D_head, *B_head;
 	TsysTab *T_head;
-
+	//	litTab *lit_Tab_Head = NULL;
 	D_head =B_head= NULL;
 	T_head= NULL;
 	litTab *litHead = NULL; //head of literal Table
@@ -21,6 +21,7 @@ int main(int argc, char **argv)
 		printf("File Does Not Exist.");	
 	
        	oP_Tab_main(); //call to akkha opCode table generation without any parameters
+	printf("\n\n");
 	while(!feof(fp))
 	{
 		while(fgets(input, 70, fp) != NULL)
@@ -55,21 +56,18 @@ int main(int argc, char **argv)
 						if (strcmp(subtoken,".data")==0)
 						{
 							sectionIdentifier = 0;
-							printf(" %s\n", subtoken);
 							break;
 						}
 
 						else if (strcmp(subtoken,".bss")==0)
 						{
 							sectionIdentifier = 1;
-							printf(" %s\n",subtoken);
 							break;
 						}
 
 						else if (strcmp(subtoken,".text")==0)
 						{
 							sectionIdentifier = 2;
-							printf(" %s\n",subtoken);
 							break;
 						}
 					}
@@ -121,7 +119,7 @@ int main(int argc, char **argv)
 						else
 							j--;
 					}
-					//////////////////////////////////////////////////////
+
 					if(j >= 0)
 					  {			   
 					  token = strtok_r(str1, ":\t",&saveptr1);
@@ -135,7 +133,7 @@ int main(int argc, char **argv)
 					    i++;
 					    
 					  }
-					////////////////////////////////////////////////
+
 				}
 			}
 		}	
@@ -144,13 +142,14 @@ int main(int argc, char **argv)
 		input = (char *) malloc(sizeof(char) * 70);
 	}
 
-		/* print_table(&D_head); */
-		/* print_table(&B_head); */
-		/* text_print_table(&T_head); */
-
+		print_table(&D_head);
+		print_table(&B_head);
+		text_print_table(&T_head);
+		printf("\n\n");
 	fclose(fp);
 
 	//literalTable function call
 	createLiteralTable(&litHead,argv[1]);
+		printf("\n\n");	
 	return 0;
 }

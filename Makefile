@@ -1,6 +1,8 @@
-exe : FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o
-	 gcc -o exe FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o
+exe : FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o
+	 gcc -o exe FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o
 
+litTable.o : litTable.o
+	gcc -Wall -g -c litTable.c
 oP_Tab_main.o : oP_Tab_main.c
 	gcc -Wall -g -c oP_Tab_main.c
 print_table.o : print_table.c
