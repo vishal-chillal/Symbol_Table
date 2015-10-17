@@ -49,3 +49,6 @@ int insert(litTab **head,char *literal );
 
 int checkRepeat(sysTab **pHead, char *name);
 int replaceWithOpcodes(char filepath[]);
+
+//for conversion of data part
+int conversion(char* input, int dataType); 

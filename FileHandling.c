@@ -19,9 +19,9 @@ int main(int argc, char **argv)
 
 	if(fp==NULL)
 		printf("File Does Not Exist.");
-
-	oP_Tab_main(); //call to akkha opCode table generation without any parameters
-	printf("\n\n");
+	////////////////////////////////////////////////////////
+	//oP_Tab_main(); //call to akkha opCode table generation without any parameters
+	printf("\n\n ");
 	while(!feof(fp))
 	{
 		while(fgets(input, 70, fp) != NULL)
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 				if (str1 == NULL)
 					break;
 				/////////////
-
+	     
 				token = strtok_r(str1, " \t", &saveptr2);
 
 				if (strcmp(token,"section")==0)
@@ -77,10 +77,11 @@ int main(int argc, char **argv)
 				if(sectionIdentifier == 0 && strcmp(token,"section")!=0 && strcmp(token,"\n")!=0 && strcmp(token,"\t\n")!=0)
 				{
 					str2 = NULL;
-					type=(char*)malloc(sizeof(char)*(3+1));
+					type=(char*)malloc(sizeof(char)*2);
 
 					temp=strtok_r(str2," ",&saveptr2);
-					strncpy(type,temp,2);		
+					strncpy(type,temp,2);
+					type[2]='\0';
 					if(strlen(temp)>2)
 					{
 						saveptr1=strtok_r(temp,"\n",&saveptr2);
@@ -162,11 +163,10 @@ int main(int argc, char **argv)
 	print_table(&D_head);
 	print_table(&B_head);
 	text_print_table(&T_head);
-	printf("\n\n");
 	fclose(fp);
 
 	//literalTable function call
-	createLiteralTable(&litHead,argv[1]);
+       	createLiteralTable(&litHead,argv[1]);
 	printf("\n\n");	
 	//call to replace with Opcodes 
 	replaceWithOpcodes(argv[1]);	
