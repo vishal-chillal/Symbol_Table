@@ -3,7 +3,7 @@
 int addEntry(sysTab **head,char *name,char *sec,char *val,char *sysType,int lineNo)
 {
 	sysTab *pNwnode,*pTemp;
-
+	int count=0;
 	pNwnode=(sysTab*)malloc(sizeof(sysTab));
 	if(pNwnode == NULL)
 		return 1;
@@ -27,12 +27,13 @@ int addEntry(sysTab **head,char *name,char *sec,char *val,char *sysType,int line
 	if(pNwnode -> val == NULL)
 	        return 1;
 	strcpy(pNwnode -> val,val);
-	pNwnode->lineNo = lineNo;
-
+       
 	pNwnode ->pNext = NULL;
 	if(*head == NULL)
 	{
 		pNwnode->index = 1;
+		count = conversion(pNwnode->val,pNwnode->type);
+		pNwnode->lineNo = count;
 		*head = pNwnode;
 		return 0;
 	}
@@ -40,12 +41,15 @@ int addEntry(sysTab **head,char *name,char *sec,char *val,char *sysType,int line
 	pTemp = *head;
 
 	while(pTemp -> pNext != NULL)
-		pTemp = pTemp->pNext;
-
-	pTemp -> pNext = pNwnode;
+	  {
+	    pTemp = pTemp->pNext;
+	  }
+	count = conversion(pNwnode->val,pNwnode->type);
+     
+	pNwnode->lineNo = (*head)->lineNo;
+	(*head)->lineNo =(pNwnode->lineNo) + count;  // preserving the line no of previous entry in head
 
 	pNwnode -> index = pTemp -> index + 1;
-
+	pTemp -> pNext = pNwnode;
 	return 0;
 }
-

@@ -1,24 +1,25 @@
 section .data
-	msg db "Addition is %d",10,0
-	msg1 dd 65,55,56
-	Temp db"djdkjfd",10,0
-	NumA dq 12,12,929
-	NumB dt "hello"
-	NumC dd 12,12,929
+	msg1 dd 65,55
+	msg db "Addition is %d",9,0
+	Temp db "djdkjfd",10,0
+	NumA dd 12,12,929
+	NumB db "hello"
+	NumC dd 12,11
 section .bss
-	four resd 1
-	two resw 1
-	one resb 1
+	twelve resd 12
+	three resw 3
+	four resb 4
+	one resd 5
+	two resd 15
 	
 section .text
 	global main
 	extern printf,scanf
-	xor eax,eax
 	
 main:	push two
 	push four
 
-mov:	mov eax,32
+l9:	mov eax,32
 
 	mov al,al 		;reg8,reg8
 

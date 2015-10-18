@@ -1,0 +1,51 @@
+     1                                  section .data
+     2 00000000 4100000037000000        	msg1 dd 65,55
+     3 00000008 4164646974696F6E20-     	msg db "Addition is %d",9,0
+     4 00000011 69732025640900     
+     5 00000018 646A646B6A66640A00      	Temp db"djdkjfd",10,0
+     6 00000021 0C0000000C000000A1-     	NumA dd 12,12,929
+     7 0000002A 030000             
+     8 0000002D 68656C6C6F              	NumB db "hello"
+     9 00000032 0C0000000B000000        	NumC dd 12,11
+    10                                  section .bss
+    11 00000000 <res 00000030>          	twelve resd 12
+    12 00000030 <res 00000006>          	three resw 3
+    13 00000036 <res 00000004>          	four resb 4
+    14 0000003A <res 00000014>          	one resd 5
+    15 0000004E <res 0000003C>          	two resd 15
+    16                                  	
+    17                                  section .text
+    18                                  	global main
+    19                                  	extern printf,scanf
+    20                                  	
+    21 00000000 68[4E000000]            main:	push two
+    22 00000005 68[36000000]            	push four
+    23                                  
+    24 0000000A B820000000              l9:	mov eax,32
+    25                                  
+    26 0000000F 88C0                    	mov al,al 		;reg8,reg8
+    27                                  
+    28 00000011 89C0                    	mov eax,eax		;reg32,reg32
+    29                                  
+    30                                  kk1:
+    31 00000013 A0[3A000000]            	mov al,byte[one]	;reg8,mem8
+    32 00000018 00C0                    	add al,al 		;reg8,reg8
+    33 0000001A 6601C0                  	add ax,ax		;reg16,reg16
+    34 0000001D 01C0                    	add eax,eax		;reg32,reg32
+    35                                  
+    36 0000001F 8005[3A000000]0A        	add byte[one],10	;mem8,imm8
+    37 00000026 668305[4E000000]17      	add word[two],23	;mem16,imm16
+    38 0000002E 8305[36000000]6F        p223:	add dword[four],111	;mem32,imm32
+    39                                  
+    40                                  	
+    41 00000035 2A05[3A000000]          	sub al,byte[one]	;reg8,mem8
+    42                                  
+    43 0000003B B8[4D000000]            	mov eax,_abc
+    44 00000040 B061                    	mov al,'a'
+    45 00000042 B8084F0000              l1:     mov eax,20232
+    46 00000047 66B8E707                	mov ax,2023		
+    47 0000004B B0DB                    	mov al,2011
+    48          ******************       warning: byte value exceeds bounds
+    49                                  
+    50 0000004D C3                      _abc: 	ret					
+    51                                  	

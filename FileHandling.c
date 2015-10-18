@@ -167,7 +167,7 @@ int main(int argc, char **argv)
 
 	//literalTable function call
        	createLiteralTable(&litHead,argv[1]);
-	printf("\n\n");	
+	printf("\n");	
 	//call to replace with Opcodes 
 	replaceWithOpcodes(argv[1]);	
 	return 0;
