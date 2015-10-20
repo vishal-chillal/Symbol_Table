@@ -136,12 +136,12 @@ int main(int argc, char **argv)
 						token = strtok_r(str1, ":\t",&saveptr1);
 						if(token != NULL)
 						{
-							//if(checkRepeat(&T_head,token) == 0) 
+							if(checkRepeat_text(&T_head,token) == 0) 
 								text_entry(&T_head,token,subtoken,0,"lable",count);
-							//else
-							//{	printf("ERROR: %d: %s label is already exist \n",count,token);
+							else
+							{	printf("ERROR: %d: %s label is already exist \n",count,token);
 								//return 1;
-							//}
+							}
 						}
 						if(strcmp(token,"main")==0)
 							i = 0;

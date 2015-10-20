@@ -22,15 +22,27 @@ int replaceWithOpcodes(char filepath[])
 	//starting from next line of section .text
 	getNums = NULL;
 	while(fgets(input,100,fp) != NULL){
-		inputLine = strtok_r(input," \t",&saveptr);
+	  tempStr = strtok(input,";");
+	  if(tempStr == NULL)
+	    break;
+		inputLine = strtok_r(tempStr," \t",&saveptr);
 		if(inputLine == NULL)
 			break;
+		if(inputLine[strlen(inputLine)-1]==':')
+		  {
+		    inputLine = strtok_r(saveptr," \t",&saveptr);
+		    if(inputLine == NULL)
+		      break;
+		  }
 		for(;;getNums=NULL)
 		{		
 			inputLine = strtok_r(getNums," \t",&saveptr);
-			if(inputLine == NULL)
-				break;
-			//printf("%s  = %c",inputLine,inputLine[strlen(inputLine)-1]);
+			if(inputLine == NULL )
+			  break;
+		
+			if(inputLine[strlen(inputLine)-1]=='\n')
+			  inputLine[strlen(inputLine)-1]='\0';
+			//printf("%s \n",inputLine);//,inputLine[strlen(inputLine)-1]);
 		}
 	}
 	return 0;

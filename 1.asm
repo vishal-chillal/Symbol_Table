@@ -41,7 +41,7 @@ p223:	add dword[four],111	;mem32,imm32
 	mov eax,_abc
 	mov al,'a'
 l1:     mov eax,20232
-	mov ax,2023		
+	mov ax,2023
 	mov al,2011
 
 _abc: 	ret					
