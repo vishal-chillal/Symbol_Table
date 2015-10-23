@@ -9,10 +9,15 @@ int main(int argc, char **argv)
 	int j, sectionIdentifier, count=0, i;
 	sysTab *D_head, *B_head;
 	TsysTab *T_head;
-	//	litTab *lit_Tab_Head = NULL;
 	D_head =B_head= NULL;
 	T_head= NULL;
 	litTab *litHead = NULL; //head of literal Table
+	opcd *O_head;
+	O_head=NULL;
+	MnemonicNode *M_head;
+	M_head=NULL;
+	regNode *R_head;
+	R_head=NULL;
 	input = (char *) malloc(sizeof(char) * 70);
 
 	fp=fopen(argv[1],"r");
@@ -20,7 +25,12 @@ int main(int argc, char **argv)
 	if(fp==NULL)
 		printf("File Does Not Exist.");
 	////////////////////////////////////////////////////////
-	//oP_Tab_main(); //call to akkha opCode table generation without any parameters
+	oP_Tab_main(&O_head); //call to akkha opCode table generation without any parameters
+	////////////////////////////////////////////////////////
+	createRg_Table(&R_head);
+	createMn_Table(&M_head);
+
+	
 	printf("\n\n ");
 	while(!feof(fp))
 	{
@@ -140,7 +150,7 @@ int main(int argc, char **argv)
 								text_entry(&T_head,token,subtoken,0,"lable",count);
 							else
 							{	printf("ERROR: %d: %s label is already exist \n",count,token);
-								//return 1;
+							  return 1;
 							}
 						}
 						if(strcmp(token,"main")==0)
@@ -169,6 +179,8 @@ int main(int argc, char **argv)
        	createLiteralTable(&litHead,argv[1]);
 	printf("\n");	
 	//call to replace with Opcodes 
-	replaceWithOpcodes(argv[1]);	
+	if(replaceWithOpcodes(argv[1],D_head,B_head,T_head,litHead,O_head,M_head,R_head) != 0)
+	  return 1;
+	
 	return 0;
 }

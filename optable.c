@@ -30,7 +30,6 @@ int optable(opcd **ppHead,char *opcode,char *instr, char *op1,char *op2)
   if(*ppHead == NULL)
     {
       *ppHead = pNwnode;
-      printf("bang\t");
       return 0;
     }
   

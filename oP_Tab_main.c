@@ -1,13 +1,13 @@
 #include "struct.h"
 
-int oP_Tab_main()
+int oP_Tab_main(opcd **pHead)
 {
 	FILE *fp;
 	char *input,*str1, *str2, *subtoken, *type, *temp,*saveptr2, *buffer;
 	int j, count=0;
-	opcd *pHead;
+	//opcd *pHead;
 
-	pHead= NULL;
+	//pHead= NULL;
 
 	input = (char *) malloc(sizeof(char) * 70);
 
@@ -54,7 +54,7 @@ int oP_Tab_main()
 			if (temp == NULL)
 				break;
 
-			optable(&pHead,str1,buffer,type,temp);
+			optable(pHead,str1,buffer,type,temp);
 
 			str1=buffer=type=temp=NULL; 
 
@@ -65,7 +65,7 @@ int oP_Tab_main()
 		input = (char *) malloc(sizeof(char) * 70);
 	}
 
-	prnt_opcd(&pHead);
+	//prnt_opcd(pHead);
 	fclose(fp);
 	return 0;
 }
