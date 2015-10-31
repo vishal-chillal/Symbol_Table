@@ -31,12 +31,12 @@ int insert_rg(regNode **head,char *regName)
 void display_rg(regNode *head)
 {
 		regNode *temp = head;
-		while(temp->next != NULL)
+		while(temp != NULL)
 		{
-				printf("%s",temp->regName);
-				temp=temp->next;
+		  printf("%d : %s " ,strlen(temp->regName),temp->regName);
+		  temp=temp->next;
 		}
-		printf("%s",temp->regName);
+		//		printf("%s",temp->regName);
 }
 
 int createRg_Table(regNode **first)
@@ -51,11 +51,11 @@ int createRg_Table(regNode **first)
 		}		
 		while(fgets(buf,sizeof(buf), fp) != NULL)
 		{
-			//buf[strlen(buf) - 1] = '\0';
+			buf[strlen(buf) - 1] = '\0';
 			insert_rg(first,buf);
 		}
-		display_rg(*first);
-		//		display_rg(first);
+			display_rg(*first);
+		
 		fclose(fp);
 		return 0;
 }

@@ -33,18 +33,17 @@ int insert_mn(MnemonicNode **head,char *MnemonicName,int elt)
 void display_mn(MnemonicNode *head)
 {
 		MnemonicNode *temp = head;
-		while(temp->next !=NULL)
+		while(temp !=NULL)
 		{
-			printf("%s",temp->MnemonicName);
-			temp = temp->next;
+		  printf("%d : %s " ,strlen(temp->MnemonicName),temp->MnemonicName);
+		  temp = temp->next;
 		}
-		printf("%s",temp->MnemonicName);
+		//printf("%s",temp->MnemonicName);
 }
 
 int createMn_Table(MnemonicNode **first)
 {
 		
-  //	first=NULL;
 		FILE *fp;
 		char buf [1024];
 		fp = fopen("input1","r");
@@ -54,10 +53,10 @@ int createMn_Table(MnemonicNode **first)
 		}		
 		while(fgets(buf,sizeof(buf), fp) != NULL)
 		{
-			//buf[strlen(buf) - 1] = '\0';
+			buf[strlen(buf) - 1] = '\0';
 			insert_mn(first,buf,0);
 		}
-		//display_mn(first);
+		display_mn(*first);
 		fclose(fp);
 		return 0;
 }

@@ -9,7 +9,7 @@ int prnt_opcd(opcd **ppHead)
     {  
       while(temp->pNext != NULL)
 	{
-	  printf("%s \t| %s | %s | %s \n",temp->opcode,temp->mn,temp->op1,temp->op2);
+	  printf("%s|%s|%s|%s\n",temp->opcode,temp->mn,temp->op1,temp->op2);
 	  temp = temp->pNext;
 	}
     }

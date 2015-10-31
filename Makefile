@@ -1,6 +1,8 @@
-exe : FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o replaceWithOpcodes.o conversion.o createMnemnic.o createRegister.o Check_Rg.o Check_Mn.o
-	 gcc -o exe FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o replaceWithOpcodes.o  conversion.o createMnemnic.o createRegister.o Check_Rg.o Check_Mn.o 
+exe : FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o replaceWithOpcodes.o conversion.o createMnemnic.o createRegister.o Check_Rg.o Check_Mn.o final_op_prnt.o
+	 gcc -o exe FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o replaceWithOpcodes.o  conversion.o createMnemnic.o createRegister.o Check_Rg.o Check_Mn.o  final_op_prnt.o
 
+final_op_prnt.o : final_op_prnt.c
+	gcc -Wall -g -c final_op_prnt.c
 Check_Rg.o : Check_Rg.c
 	gcc -Wall -g -c Check_Rg.c 
 Check_Mn.o : Check_Mn.c

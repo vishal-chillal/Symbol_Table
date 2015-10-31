@@ -13,7 +13,7 @@ int replaceWithOpcodes(char filepath[],sysTab *D_head,sysTab *B_head,TsysTab *T_
 	while(fgets(input,100,fp) != NULL){ 
 		tempStr = strtok(input," \t");
 		if(tempStr!=NULL)
-			if(strcmp(tempStr,"main:") == 0){
+			if(strcmp(tempStr,"extern") == 0){
 				//we have to handle main: line here (single line)
 				break;
 			}
@@ -23,11 +23,13 @@ int replaceWithOpcodes(char filepath[],sysTab *D_head,sysTab *B_head,TsysTab *T_
 	getNums = NULL;
 	while(fgets(input,100,fp) != NULL){
 	  tempStr = strtok(input,";");
+	  printf("%s",tempStr);
 	  if(tempStr == NULL)
 	    break;
 		inputLine = strtok_r(tempStr," \t",&saveptr);
 		if(inputLine == NULL)
 			break;
+		
 		if(inputLine[strlen(inputLine)-1]==':')
 		  {
 		    inputLine = strtok_r(saveptr," \t",&saveptr);
@@ -38,15 +40,15 @@ int replaceWithOpcodes(char filepath[],sysTab *D_head,sysTab *B_head,TsysTab *T_
 		strcpy(mneMonic,inputLine);
 		for(;;getNums=NULL)
 		{		
-			inputLine = strtok_r(getNums," \t",&saveptr);
+			inputLine = strtok_r(getNums,", \t",&saveptr);
 			if(inputLine == NULL )
 			  break;
-		
+
 			if(inputLine[strlen(inputLine)-1]=='\n')
 			  inputLine[strlen(inputLine)-1]='\0';
 
-			//printf("%s \n",inputLine);//,inputLine[strlen(inputLine)-1]);
-			if(rePlacement(mneMonic,inputLine,D_head,B_head,T_head,L_head,O_head,M_head,R_head) != 0)
+			
+			if(rePlacement(mneMonic,inputLine,saveptr,D_head,B_head,T_head,L_head,O_head,M_head,R_head) != 0)
 			  return 1;
 			
 		}
@@ -55,23 +57,23 @@ int replaceWithOpcodes(char filepath[],sysTab *D_head,sysTab *B_head,TsysTab *T_
 }
 
 
-int rePlacement(char *mneMonic,char *inStr,sysTab *D_head,sysTab *B_head,TsysTab *T_head,litTab *L_head,opcd *O_head,MnemonicNode *M_head,regNode *R_head)
+int rePlacement(char *mneMonic,char *inStr,char *op2,sysTab *D_head,sysTab *B_head,TsysTab *T_head,litTab *L_head,opcd *O_head,MnemonicNode *M_head,regNode *R_head)
 {
-  char *op1,*op2,*str1,*saveptr;
-  str1=NULL;
+  char *op1,*saveptr;
   op1 = strtok_r(inStr,",",&saveptr);
   if(op1 == NULL)
     return 1;
-  op2 = strtok_r(str1,",",&saveptr);
-  //  if(op!=NULL)
-    printf("%s :%s : %s \n",mneMonic,op1,op2);
-  if(check_Mn(mneMonic,M_head) != 0)
+  //  prnt_opcd(&O_head);
+  op2 = strtok_r(op2,", \t",&saveptr);
+  printf("%s :%s : %s \n", mneMonic, op1, op2);
+  if(check_Mn(mneMonic, M_head) != 0)
     return 1;
-  else
-      printf("%s :\t",mneMonic);
-  if(check_Rg(op1,R_head)!= 0)
+  if(check_Rg(op1, R_head)!= 0)
     return 1;
-    
+  if(final_op_default(mneMonic, op1, op2, O_head) != 0)    
+    return 1;
+
   return 0;
+  
 }
   

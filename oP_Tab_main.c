@@ -5,9 +5,6 @@ int oP_Tab_main(opcd **pHead)
 	FILE *fp;
 	char *input,*str1, *str2, *subtoken, *type, *temp,*saveptr2, *buffer;
 	int j, count=0;
-	//opcd *pHead;
-
-	//pHead= NULL;
 
 	input = (char *) malloc(sizeof(char) * 70);
 

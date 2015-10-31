@@ -16,15 +16,11 @@ section .text
 	global main
 	extern printf,scanf
 	
-main:	push two
-	push four
-
-l9:	mov eax,32
-
-	mov al,al 		;reg8,reg8
-
+main:
+	
+l9:	mov eax,ebx	
 	mov eax,eax		;reg32,reg32
-
+	add ecx,edx
 kk1:
 	mov al,byte[one]	;reg8,mem8
 	add al,al 		;reg8,reg8
@@ -35,6 +31,11 @@ kk1:
 	add word[two],23	;mem16,imm16
 p223:	add dword[four],111	;mem32,imm32
 
+	mov eax,32
+	
+	push two
+	push four
+	mov al,al 		;reg8,reg8
 	
 	sub al,byte[one]	;reg8,mem8
 

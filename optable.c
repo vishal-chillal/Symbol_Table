@@ -10,7 +10,7 @@ int optable(opcd **ppHead,char *opcode,char *instr, char *op1,char *op2)
   if(pNwnode->opcode == NULL)
     return 1;
   strcpy(pNwnode->opcode,opcode);
-  
+
   pNwnode->mn = (char*)malloc(sizeof(char)*((strlen(instr))+1));
   if(pNwnode->mn == NULL)
     return 1;
@@ -25,7 +25,7 @@ int optable(opcd **ppHead,char *opcode,char *instr, char *op1,char *op2)
   if(pNwnode -> op2 == NULL)
     return 1;
   strcpy(pNwnode ->op2,op2);
-  
+  pNwnode -> op2[strlen(pNwnode -> op2)-1]='\0';  
   pNwnode ->pNext = NULL;
   if(*ppHead == NULL)
     {
