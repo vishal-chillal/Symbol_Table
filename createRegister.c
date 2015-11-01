@@ -54,7 +54,7 @@ int createRg_Table(regNode **first)
 			buf[strlen(buf) - 1] = '\0';
 			insert_rg(first,buf);
 		}
-			display_rg(*first);
+		//	display_rg(*first);
 		
 		fclose(fp);
 		return 0;

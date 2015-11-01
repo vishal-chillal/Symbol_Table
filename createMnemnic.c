@@ -56,7 +56,7 @@ int createMn_Table(MnemonicNode **first)
 			buf[strlen(buf) - 1] = '\0';
 			insert_mn(first,buf,0);
 		}
-		display_mn(*first);
+		//display_mn(*first);
 		fclose(fp);
 		return 0;
 }

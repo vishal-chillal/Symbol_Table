@@ -1,7 +1,7 @@
 #include"struct.h"
 int final_op_default(char *mneMonic,char *op1,char *op2,opcd *O_head)
 {
-  printf(" %d \t %d \t %d \n",strlen(mneMonic),strlen(op1),strlen(op2));
+  //  printf(" %d \t %d \t %d \n",strlen(mneMonic),strlen(op1),strlen(op2));
   while(O_head != NULL)
     {
       //  printf("%s|%s",op2,O_head->op2);
@@ -18,27 +18,34 @@ int final_op_default(char *mneMonic,char *op1,char *op2,opcd *O_head)
   return 1;
 }
 
-int final_op_sec(char *mneMonic,char *op1,char *op2,sysTab *O_head)
+int final_op_sec(char *mneMonic,char *op1,char *op2,sysTab *pHead)
 {
-  return 0;
+  while(pHead != NULL)
+    {
+      if(strcmp(op2,pHead->name)==0)
+	{
+	  printf("[%.8X]\n",pHead->lineNo);
+	  return 0;
+	}
+      else
+	pHead = pHead->pNext;
+    }
+  return 1;
 }
-  
+
 
 int final_op_Lsec(char *mneMonic,char *op1,char *op2,litTab *pHead)
 {
-  return 0;
+  while(pHead != NULL)
+    {
+      if(strcmp(op2,pHead->op2)==0)
+	{
+	  printf("[%.8X]\n",pHead->hexVal);
+	  return 0;
+	    }
+      else
+	pHead = pHead->next;
+    }
+  return 1;
 }
-/* { */
-/*   while(O_head != NULL) */
-/*     { */
-/*       if(strcmp(mneMonic,O_head->mn)==0) */
-/* 	{ */
-/* 	  if(strcmp(op1,O_head->op1)==0) */
-/* 	    if(strcmp(op2,O_head->op2)==0) */
-/* 	      return 0; */
-/* 	} */
-/*       else */
-/* 	O_head = O_head->pNext; */
-/*     } */
-/*   return 1; */
-/* } */
+

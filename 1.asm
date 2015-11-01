@@ -6,7 +6,7 @@ section .data
 	NumB db "hello"
 	NumC dd 12,11
 section .bss
-	twelve resd 12
+	twelv resd 12
 	three resw 3
 	four resb 4
 	one resd 5
@@ -16,11 +16,11 @@ section .text
 	global main
 	extern printf,scanf
 	
-main:
+main:	mov eax,ebx	
 	
-l9:	mov eax,ebx	
+l9:	add ecx,edx
 	mov eax,eax		;reg32,reg32
-	add ecx,edx
+	
 kk1:
 	mov al,byte[one]	;reg8,mem8
 	add al,al 		;reg8,reg8
@@ -43,7 +43,6 @@ p223:	add dword[four],111	;mem32,imm32
 	mov al,'a'
 l1:     mov eax,20232
 	mov ax,2023
-	mov al,2011
-
+	mov al,20
 _abc: 	ret					
 	
