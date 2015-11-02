@@ -35,7 +35,7 @@ void display_mn(MnemonicNode *head)
 		MnemonicNode *temp = head;
 		while(temp !=NULL)
 		{
-		  printf("%d : %s " ,strlen(temp->MnemonicName),temp->MnemonicName);
+		  //		  printf("%d : %s " ,strlen(temp->MnemonicName),temp->MnemonicName);
 		  temp = temp->next;
 		}
 		//printf("%s",temp->MnemonicName);

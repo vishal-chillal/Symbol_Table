@@ -1,4 +1,4 @@
-input:
+input: (github)
 	myInput.txt -> source opcode table
 	<asm File> -> user input as a command line argument
 

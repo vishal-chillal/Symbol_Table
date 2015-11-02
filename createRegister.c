@@ -33,7 +33,7 @@ void display_rg(regNode *head)
 		regNode *temp = head;
 		while(temp != NULL)
 		{
-		  printf("%d : %s " ,strlen(temp->regName),temp->regName);
+		  //		  printf("%d : %s " ,strlen(temp->regName),temp->regName);
 		  temp=temp->next;
 		}
 		//		printf("%s",temp->regName);

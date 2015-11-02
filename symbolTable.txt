@@ -1,0 +1,11 @@
+00000000 | 1	| twelv	| .bss	| 12	| resd
+00000030 | 2	| three	| .bss	| 3	| resw
+00000036 | 3	| four	| .bss	| 4	| resb
+0000003A | 4	| one	| .bss	| 5	| resd
+0000004E | 5	| two	| .bss	| 15	| resd
+19	 | 1	| main	| .text	| 0	| lable
+21	 | 2	| l9	| .text	| 0	| lable
+24	 | 3	| kk1	| .text	| 0	| lable
+32	 | 4	| p223	| .text	| 0	| lable
+44	 | 5	| l1	| .text	| 0	| lable
+47	 | 6	| _abc	| .text	| 0	| lable
