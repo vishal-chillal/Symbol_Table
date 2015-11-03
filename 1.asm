@@ -22,7 +22,8 @@ l9:	add ecx,edx
 	mov eax,eax		;reg32,reg32
 	
 kk1:
-	mov al,byte[one]	;reg8,mem8
+	mov ah,byte[one]	;reg8,mem8
+	
 	add al,al 		;reg8,reg8
 	add ax,ax		;reg16,reg16
 	add eax,eax		;reg32,reg32

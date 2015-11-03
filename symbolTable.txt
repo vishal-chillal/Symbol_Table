@@ -6,6 +6,6 @@
 19	 | 1	| main	| .text	| 0	| lable
 21	 | 2	| l9	| .text	| 0	| lable
 24	 | 3	| kk1	| .text	| 0	| lable
-32	 | 4	| p223	| .text	| 0	| lable
-44	 | 5	| l1	| .text	| 0	| lable
-47	 | 6	| _abc	| .text	| 0	| lable
+33	 | 4	| p223	| .text	| 0	| lable
+45	 | 5	| l1	| .text	| 0	| lable
+48	 | 6	| _abc	| .text	| 0	| lable

@@ -24,24 +24,28 @@
     24 00000004 89C0                    	mov eax,eax		;reg32,reg32
     25                                  	
     26                                  kk1:
-    27                                  	;;  	mov al,byte[one]reg8,mem8
-    28 00000006 00C0                    	add al,al 		;reg8,reg8
-    29 00000008 6601C0                  	add ax,ax		;reg16,reg16
-    30 0000000B 01C0                    	add eax,eax		;reg32,reg32
-    31                                  
-    32 0000000D BA[3A000000]            	mov edx,one	;mem8,imm8
-    33 00000012 B817000000              	mov eax,23	;mem16,imm16
-    34 00000017 B9[36000000]            p223:	mov ecx,four	;mem32,imm32
-    35                                  	
-    36 0000001C B820000000              	mov eax,32
-    37                                  	
-    38 00000021 68[4E000000]            	push two
-    39 00000026 88C0                    	mov al,al 		;reg8,reg8
-    40                                  	
-    41 00000028 B8[3A000000]            	mov eax,_abc
-    42 0000002D B061                    	mov al,'a'
-    43 0000002F B8084F0000              l1:     mov eax,20232
-    44 00000034 66B8E707                	mov ax,2023
-    45 00000038 B014                    	mov al,20
-    46 0000003A C3                      _abc: 	ret					
-    47                                  	
+    27 00000006 8A25[3A000000]          	mov ah,byte[one]	;reg8,mem8
+    28 0000000C 8902                    	mov dword[edx],eax
+    29 0000000E 00C0                    	add al,al 		;reg8,reg8
+    30 00000010 6601C0                  	add ax,ax		;reg16,reg16
+    31 00000013 01C0                    	add eax,eax		;reg32,reg32
+    32                                  
+    33 00000015 8005[3A000000]0A        	add byte[one],10	;mem8,imm8
+    34 0000001C 668305[4E000000]17      	add word[two],23	;mem16,imm16
+    35 00000024 8305[36000000]6F        p223:	add dword[four],111	;mem32,imm32
+    36                                  
+    37 0000002B B820000000              	mov eax,32
+    38                                  	
+    39 00000030 68[4E000000]            	push two
+    40 00000035 68[36000000]            	push four
+    41 0000003A 88C0                    	mov al,al 		;reg8,reg8
+    42                                  	
+    43 0000003C 2A05[3A000000]          	sub al,byte[one]	;reg8,mem8
+    44                                  
+    45 00000042 B8[54000000]            	mov eax,_abc
+    46 00000047 B061                    	mov al,'a'
+    47 00000049 B8084F0000              l1:     mov eax,20232
+    48 0000004E 66B8E707                	mov ax,2023
+    49 00000052 B014                    	mov al,20
+    50 00000054 C3                      _abc: 	ret					
+    51                                  	

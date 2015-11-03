@@ -1,12 +1,19 @@
 #include <stdio.h>
 #include "struct.h"
 
-int insert(litTab **ppHead,char *literal)
+int insert(litTab **ppHead,char *literal,int flg)
 {
         FILE *fd;
-	fd = fopen("LiteralTAble.text","w");
+	if( flg == 0){
+		return 0;
+		fd = fopen("LiteralTAble.text","w");
+		if(fd == NULL)
+			return 0;
+	}
+	else
+	  fd = fopen("LiteralTAble.text","a");
 	if(fd == NULL)
-	  return 0;
+		return 0;
 	litTab *pTemp,*pNwNode;
 	pNwNode = (litTab*)malloc(sizeof(litTab));
 
@@ -15,7 +22,7 @@ int insert(litTab **ppHead,char *literal)
 	strcpy(pNwNode->op2,literal);
 	pNwNode->next = NULL;
 	pNwNode->hexVal = atoi(literal);
-	fprintf(fd,"%d : %.8x\n",pNwNode->hexVal,pNwNode->hexVal);
+	fprintf(fd,"%d : %.8X\n",pNwNode->hexVal,pNwNode->hexVal);
 	if(*ppHead == NULL)
 	  {
 	    *ppHead = pNwNode;

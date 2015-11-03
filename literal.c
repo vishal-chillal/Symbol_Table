@@ -3,7 +3,7 @@
 
 int createLiteralTable(litTab **ppHead,char filepath[])
 {
-	int i,j;
+        int i,j,flg = 0;
 	FILE *fp;
 	char *saveptr,input[100],*tempStr,*getNums;
 	fp = fopen(filepath,"r");
@@ -37,9 +37,13 @@ int createLiteralTable(litTab **ppHead,char filepath[])
 				}
 			}
 			saveptr =NULL;
-			if(strcmp(getNums,"\0")!=0)
-			  	  insert(ppHead,getNums); // call to linklist of lit_table
+			if( getNums[0] !='\0')
+			  {
+			    insert(ppHead,getNums,flg); // call to linklist of lit_table
+			    flg = 1;
+			  }
 			getNums = NULL;
+			
 			
 		}
 	}

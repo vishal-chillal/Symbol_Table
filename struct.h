@@ -59,7 +59,7 @@ int text_print_table(TsysTab **head);
 int text_entry (TsysTab **head,char *name,char *sec,int val,char *sysType, int lineNo);
 
 int createLiteralTable(litTab **head,char filepath[]);
-int insert(litTab **head,char *literal );
+int insert(litTab **head,char *literal,int flg );
 
 int checkRepeat(sysTab **pHead, char *name);
 int checkRepeat_text(TsysTab **pHead, char *name);
