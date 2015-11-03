@@ -3,6 +3,10 @@
 
 int insert(litTab **ppHead,char *literal)
 {
+        FILE *fd;
+	fd = fopen("LiteralTAble.text","w");
+	if(fd == NULL)
+	  return 0;
 	litTab *pTemp,*pNwNode;
 	pNwNode = (litTab*)malloc(sizeof(litTab));
 
@@ -11,7 +15,7 @@ int insert(litTab **ppHead,char *literal)
 	strcpy(pNwNode->op2,literal);
 	pNwNode->next = NULL;
 	pNwNode->hexVal = atoi(literal);
-	printf("\t %d : %.8x\n",pNwNode->hexVal,pNwNode->hexVal);
+	fprintf(fd,"%d : %.8x\n",pNwNode->hexVal,pNwNode->hexVal);
 	if(*ppHead == NULL)
 	  {
 	    *ppHead = pNwNode;

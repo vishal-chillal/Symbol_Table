@@ -7,6 +7,7 @@ int createLiteralTable(litTab **ppHead,char filepath[])
 	FILE *fp;
 	char *saveptr,input[100],*tempStr,*getNums;
 	fp = fopen(filepath,"r");
+
 	tempStr = (char *)malloc(sizeof(char)*100);
 
 // getting till section .text
@@ -37,7 +38,7 @@ int createLiteralTable(litTab **ppHead,char filepath[])
 			}
 			saveptr =NULL;
 			if(strcmp(getNums,"\0")!=0)
-			  insert(ppHead,getNums); // call to linklist of lit_table
+			  	  insert(ppHead,getNums); // call to linklist of lit_table
 			getNums = NULL;
 			
 		}
