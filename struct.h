@@ -66,7 +66,7 @@ int checkRepeat_text(TsysTab **pHead, char *name);
 
 
 //giving final opcode
-int replaceWithOpcodes(char filepath[],sysTab *D_head,sysTab *B_head,TsysTab *T_head,litTab *L_head,opcd *O_head,MnemonicNode *M_head,regNode *R_head);
+int replaceWithOpcodes(char *input,sysTab *D_head,sysTab *B_head,TsysTab *T_head,litTab *L_head,opcd *O_head,MnemonicNode *M_head,regNode *R_head);
 
 int rePlacement(char *mneMonic, char *inStr,char *op2, sysTab *D_head,sysTab *B_head,TsysTab *T_head,litTab *L_head,opcd *O_head,MnemonicNode *M_head,regNode *R_head);
 

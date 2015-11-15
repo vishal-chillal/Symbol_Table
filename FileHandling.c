@@ -29,6 +29,7 @@ int main(int argc, char **argv)
 	////////////////////////////////////////////////////////
 	createRg_Table(&R_head);
 	createMn_Table(&M_head);
+       	createLiteralTable(&litHead,argv[1]);
 
 	
 	printf("\n\n");
@@ -50,9 +51,9 @@ int main(int argc, char **argv)
 				  break;
 				str1[strlen(str1)-1]='\0';
 				/////////////
-				printf("\n%s \t \t \t \t",str1);
 				inputLine = (char*)malloc(sizeof(char)*(strlen(str1)));
 				strcpy(inputLine,str1);
+				printf("\n%s \t \t \t \t",inputLine);
 				token = strtok_r(str1, " \t", &saveptr2);
 				if(token == NULL)
 				  break;
@@ -145,8 +146,10 @@ int main(int argc, char **argv)
 							j--;
 					}
 
+					replaceWithOpcodes(inputLine,D_head,B_head,T_head,litHead,O_head,M_head,R_head);
+
 					if(j >= 0)
-					{			   
+					{
 						token = strtok_r(str1, ":\t",&saveptr1);
 						if(token != NULL)
 						{
@@ -154,18 +157,14 @@ int main(int argc, char **argv)
 								text_entry(&T_head,token,subtoken,0,"lable",count);
 							else
 							{	printf("ERROR: %d: %s label is already exist \n",count,token);
-							  return 1;
+								return 1;
 							}
 						}
 						if(strcmp(token,"main")==0)
 							i = 0;
 					}
 					else
-					{
 						i++;
-
-					}
-
 				}
 				
 			}
@@ -181,11 +180,8 @@ int main(int argc, char **argv)
 	fclose(fp);
 
 	//literalTable function call
-       	createLiteralTable(&litHead,argv[1]);
 	//	printf("\n");	
 	//call to replace with Opcodes 
-		if(replaceWithOpcodes(argv[1],D_head,B_head,T_head,litHead,O_head,M_head,R_head) != 0)
-	return 1;
-	
+
 	return 0;
 }
