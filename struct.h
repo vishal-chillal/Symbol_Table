@@ -54,7 +54,7 @@ int optable(opcd **ppHead,char *opcode,char *instr, char *op1,char *op2);
 int prnt_opcd(opcd **ppHead);
 
 int addEntry (sysTab **head,char *name,char *sec,char *val,char *sysType, int lineNo);
-int print_table( sysTab **head);
+int print_table( sysTab **head, int flag);
 int text_print_table(TsysTab **head);
 int text_entry (TsysTab **head,char *name,char *sec,int val,char *sysType, int lineNo);
 
@@ -89,4 +89,4 @@ void display_rg(regNode *head);
 int insert_rg(regNode **head,char *regName);
 
 //for conversion of data part
-int conversion(char* input, char* dataType); 
+int conversion(int address,char* input, char* dataType,sysTab *head); 

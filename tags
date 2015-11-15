@@ -1,0 +1,420 @@
+Check_Mn.o	Makefile	/^Check_Mn.o : Check_Mn.c$/
+Check_Rg.o	Makefile	/^Check_Rg.o : Check_Rg.c$/
+FileHandling.o	Makefile	/^FileHandling.o : FileHandling.c$/
+M1.asm	1.asm	/^main:	mov eax,ebx	$/
+MFileHandling	FileHandling.c	/^int main(int argc, char **argv)$/
+Mnemonic	struct.h	37
+MnemonicName	struct.h	39
+MnemonicNode	struct.h	42
+Mtemp	temp.c	/^int main()$/
+TsysTab	struct.h	21
+_abc	1.asm	/^_abc: 	ret					$/
+addEntry	addEntry.c	/^int addEntry(sysTab **head,char *name,char *sec,ch/
+addEntry.o	Makefile	/^addEntry.o : addEntry.c$/
+ah	lst.lst	27
+ah	myInput.text	47
+ah	myInput.text	48
+ah	myInput.text	49
+ah	myInput.text	50
+ah	myInput.text	51
+ah	myInput.text	52
+ah	myInput.text	53
+ah	myInput.text	54
+ah	myInput.text	160
+ah	myInput.text	161
+ah	myInput.text	162
+ah	myInput.text	163
+ah	myInput.text	164
+ah	myInput.text	165
+ah	myInput.text	166
+ah	myInput.text	167
+ah	myInput.text	266
+ah	myInput.text	267
+ah	myInput.text	268
+ah	myInput.text	269
+ah	myInput.text	270
+ah	myInput.text	271
+ah	myInput.text	272
+ah	myInput.text	273
+al	lst.lst	29
+al	lst.lst	29
+al	lst.lst	41
+al	lst.lst	41
+al	lst.lst	43
+al	lst.lst	46
+al	lst.lst	49
+al	myInput.text	38
+al	myInput.text	39
+al	myInput.text	40
+al	myInput.text	41
+al	myInput.text	42
+al	myInput.text	43
+al	myInput.text	44
+al	myInput.text	45
+al	myInput.text	151
+al	myInput.text	152
+al	myInput.text	153
+al	myInput.text	154
+al	myInput.text	155
+al	myInput.text	156
+al	myInput.text	157
+al	myInput.text	158
+al	myInput.text	257
+al	myInput.text	258
+al	myInput.text	259
+al	myInput.text	260
+al	myInput.text	261
+al	myInput.text	262
+al	myInput.text	263
+al	myInput.text	264
+ax	lst.lst	30
+ax	lst.lst	30
+ax	lst.lst	48
+ax	myInput.text	21
+ax	myInput.text	22
+ax	myInput.text	23
+ax	myInput.text	24
+ax	myInput.text	130
+ax	myInput.text	131
+ax	myInput.text	132
+ax	myInput.text	133
+ax	myInput.text	240
+ax	myInput.text	241
+ax	myInput.text	242
+ax	myInput.text	243
+bh	myInput.text	65
+bh	myInput.text	66
+bh	myInput.text	67
+bh	myInput.text	68
+bh	myInput.text	69
+bh	myInput.text	70
+bh	myInput.text	71
+bh	myInput.text	72
+bh	myInput.text	178
+bh	myInput.text	179
+bh	myInput.text	180
+bh	myInput.text	181
+bh	myInput.text	182
+bh	myInput.text	183
+bh	myInput.text	184
+bh	myInput.text	185
+bh	myInput.text	284
+bh	myInput.text	285
+bh	myInput.text	286
+bh	myInput.text	287
+bh	myInput.text	288
+bh	myInput.text	289
+bh	myInput.text	290
+bh	myInput.text	291
+bl	myInput.text	56
+bl	myInput.text	57
+bl	myInput.text	58
+bl	myInput.text	59
+bl	myInput.text	60
+bl	myInput.text	61
+bl	myInput.text	62
+bl	myInput.text	63
+bl	myInput.text	169
+bl	myInput.text	170
+bl	myInput.text	171
+bl	myInput.text	172
+bl	myInput.text	173
+bl	myInput.text	174
+bl	myInput.text	175
+bl	myInput.text	176
+bl	myInput.text	275
+bl	myInput.text	276
+bl	myInput.text	277
+bl	myInput.text	278
+bl	myInput.text	279
+bl	myInput.text	280
+bl	myInput.text	281
+bl	myInput.text	282
+bx	myInput.text	25
+bx	myInput.text	26
+bx	myInput.text	27
+bx	myInput.text	28
+bx	myInput.text	135
+bx	myInput.text	136
+bx	myInput.text	137
+bx	myInput.text	138
+bx	myInput.text	244
+bx	myInput.text	245
+bx	myInput.text	246
+bx	myInput.text	247
+byte	lst.lst	27
+byte	lst.lst	33
+byte	lst.lst	43
+ch	myInput.text	83
+ch	myInput.text	84
+ch	myInput.text	85
+ch	myInput.text	86
+ch	myInput.text	87
+ch	myInput.text	88
+ch	myInput.text	89
+ch	myInput.text	90
+ch	myInput.text	196
+ch	myInput.text	197
+ch	myInput.text	198
+ch	myInput.text	199
+ch	myInput.text	200
+ch	myInput.text	201
+ch	myInput.text	202
+ch	myInput.text	203
+ch	myInput.text	302
+ch	myInput.text	303
+ch	myInput.text	304
+ch	myInput.text	305
+ch	myInput.text	306
+ch	myInput.text	307
+ch	myInput.text	308
+ch	myInput.text	309
+checkRepeat	checkRepeat.c	/^int checkRepeat(sysTab **pHead, char *name)$/
+checkRepeat.o	Makefile	/^checkRepeat.o : checkRepeat.c$/
+checkRepeat_text	checkRepeat.c	/^int checkRepeat_text(TsysTab **pHead, char *name)$/
+check_Mn	Check_Mn.c	/^int check_Mn(char *mneMonic,MnemonicNode *M_head)$/
+check_Rg	Check_Rg.c	/^int check_Rg(char *op1,regNode *R_head)$/
+cl	myInput.text	74
+cl	myInput.text	75
+cl	myInput.text	76
+cl	myInput.text	77
+cl	myInput.text	78
+cl	myInput.text	79
+cl	myInput.text	80
+cl	myInput.text	81
+cl	myInput.text	187
+cl	myInput.text	188
+cl	myInput.text	189
+cl	myInput.text	190
+cl	myInput.text	191
+cl	myInput.text	192
+cl	myInput.text	193
+cl	myInput.text	194
+cl	myInput.text	293
+cl	myInput.text	294
+cl	myInput.text	295
+cl	myInput.text	296
+cl	myInput.text	297
+cl	myInput.text	298
+cl	myInput.text	299
+cl	myInput.text	300
+conversion	conversion.c	/^int conversion(char* inp,char* dataType)$/
+conversion.o	Makefile	/^conversion.o : conversion.c$/
+createLiteralTable	literal.c	/^int createLiteralTable(litTab **ppHead,char filepa/
+createMn_Table	createMnemnic.c	/^int createMn_Table(MnemonicNode **first)$/
+createMnemnic.o	Makefile	/^createMnemnic.o : createMnemnic.c$/
+createRegister.o	Makefile	/^createRegister.o : createRegister.c$/
+createRg_Table	createRegister.c	/^int createRg_Table(regNode **first)$/
+cx	myInput.text	29
+cx	myInput.text	30
+cx	myInput.text	31
+cx	myInput.text	32
+cx	myInput.text	140
+cx	myInput.text	141
+cx	myInput.text	142
+cx	myInput.text	143
+cx	myInput.text	248
+cx	myInput.text	249
+cx	myInput.text	250
+cx	myInput.text	251
+dd	lst.lst	2
+dd	lst.lst	6
+dd	lst.lst	9
+dh	myInput.text	101
+dh	myInput.text	102
+dh	myInput.text	103
+dh	myInput.text	104
+dh	myInput.text	105
+dh	myInput.text	106
+dh	myInput.text	107
+dh	myInput.text	108
+dh	myInput.text	214
+dh	myInput.text	215
+dh	myInput.text	216
+dh	myInput.text	217
+dh	myInput.text	218
+dh	myInput.text	219
+dh	myInput.text	220
+dh	myInput.text	221
+dh	myInput.text	320
+dh	myInput.text	321
+dh	myInput.text	322
+dh	myInput.text	323
+dh	myInput.text	324
+dh	myInput.text	325
+dh	myInput.text	326
+dh	myInput.text	327
+display_mn	createMnemnic.c	/^void display_mn(MnemonicNode *head)$/
+display_rg	createRegister.c	/^void display_rg(regNode *head)$/
+dl	myInput.text	92
+dl	myInput.text	93
+dl	myInput.text	94
+dl	myInput.text	95
+dl	myInput.text	96
+dl	myInput.text	97
+dl	myInput.text	98
+dl	myInput.text	99
+dl	myInput.text	205
+dl	myInput.text	206
+dl	myInput.text	207
+dl	myInput.text	208
+dl	myInput.text	209
+dl	myInput.text	210
+dl	myInput.text	211
+dl	myInput.text	212
+dl	myInput.text	311
+dl	myInput.text	312
+dl	myInput.text	313
+dl	myInput.text	314
+dl	myInput.text	315
+dl	myInput.text	316
+dl	myInput.text	317
+dl	myInput.text	318
+dword	lst.lst	28
+dword	lst.lst	35
+dx	myInput.text	33
+dx	myInput.text	34
+dx	myInput.text	35
+dx	myInput.text	36
+dx	myInput.text	145
+dx	myInput.text	146
+dx	myInput.text	147
+dx	myInput.text	148
+dx	myInput.text	252
+dx	myInput.text	253
+dx	myInput.text	254
+dx	myInput.text	255
+eax	lst.lst	31
+eax	lst.lst	31
+eax	lst.lst	37
+eax	lst.lst	45
+eax	lst.lst	47
+eax	myInput.text	4
+eax	myInput.text	5
+eax	myInput.text	6
+eax	myInput.text	7
+eax	myInput.text	110
+eax	myInput.text	111
+eax	myInput.text	112
+eax	myInput.text	113
+eax	myInput.text	223
+eax	myInput.text	224
+eax	myInput.text	225
+eax	myInput.text	226
+ebx	myInput.text	8
+ebx	myInput.text	9
+ebx	myInput.text	10
+ebx	myInput.text	11
+ebx	myInput.text	115
+ebx	myInput.text	116
+ebx	myInput.text	117
+ebx	myInput.text	118
+ebx	myInput.text	227
+ebx	myInput.text	228
+ebx	myInput.text	229
+ebx	myInput.text	230
+ecx	myInput.text	12
+ecx	myInput.text	13
+ecx	myInput.text	14
+ecx	myInput.text	15
+ecx	myInput.text	120
+ecx	myInput.text	121
+ecx	myInput.text	122
+ecx	myInput.text	123
+ecx	myInput.text	231
+ecx	myInput.text	232
+ecx	myInput.text	233
+ecx	myInput.text	234
+edx	myInput.text	16
+edx	myInput.text	17
+edx	myInput.text	18
+edx	myInput.text	19
+edx	myInput.text	125
+edx	myInput.text	126
+edx	myInput.text	127
+edx	myInput.text	128
+edx	myInput.text	235
+edx	myInput.text	236
+edx	myInput.text	237
+edx	myInput.text	238
+exe	Makefile	/^exe : FileHandling.o addEntry.o print_table.o text/
+final_op_Lsec	final_op_prnt.c	/^int final_op_Lsec(char *mneMonic,char *op1,char *o/
+final_op_default	final_op_prnt.c	/^int final_op_default(char *mneMonic,char *op1,char/
+final_op_prnt.o	Makefile	/^final_op_prnt.o : final_op_prnt.c$/
+final_op_sec	final_op_prnt.c	/^int final_op_sec(char *mneMonic,char *op1,char *op/
+hexVal	struct.h	33
+index	struct.h	8
+index	struct.h	17
+input	ReadME.txt	/^input: (github)$/
+insert	litTable.c	/^int insert(litTab **ppHead,char *literal,int flg)$/
+insert_mn	createMnemnic.c	/^int insert_mn(MnemonicNode **head,char *MnemonicNa/
+insert_rg	createRegister.c	/^int insert_rg(regNode **head,char *regName)$/
+kk1	1.asm	/^kk1:$/
+l1	1.asm	/^l1:     mov eax,20232$/
+l9	1.asm	/^l9:	add ecx,edx$/
+lineNo	struct.h	8
+lineNo	struct.h	17
+litTab	struct.h	35
+litTable.o	Makefile	/^litTable.o : litTable.c$/
+literal.o	Makefile	/^literal.o : literal.c$/
+literal_table	struct.h	31
+mem16	lst.lst	34
+mem32	lst.lst	35
+mem8	lst.lst	33
+mn	struct.h	26
+name	struct.h	9
+name	struct.h	18
+next	struct.h	34
+next	struct.h	41
+next	struct.h	47
+oP_Tab_main	oP_Tab_main.c	/^int oP_Tab_main(opcd **pHead)$/
+oP_Tab_main.o	Makefile	/^oP_Tab_main.o : oP_Tab_main.c$/
+op1	struct.h	26
+op2	struct.h	26
+op2	struct.h	32
+opcd	struct.h	24
+opcd	struct.h	28
+opcode	struct.h	26
+optable	optable.c	/^int optable(opcd **ppHead,char *opcode,char *instr/
+optable.o	Makefile	/^optable.o : optable.c$/
+p223	1.asm	/^p223:	add dword[four],111	;mem32,imm32$/
+pNext	struct.h	10
+pNext	struct.h	19
+pNext	struct.h	27
+print_table	print_table.c	/^int print_table(sysTab **head, int flag)$/
+print_table.o	Makefile	/^print_table.o : print_table.c$/
+prnt_opcd	prnt_opcd.c	/^int prnt_opcd(opcd **ppHead)$/
+prnt_opcd.o	Makefile	/^prnt_opcd.o : prnt_opcd.c$/
+rePlacement	replaceWithOpcodes.c	/^int rePlacement(char *mneMonic,char *inStr,char *o/
+reg	struct.h	44
+reg16	lst.lst	30
+reg32	lst.lst	24
+reg32	lst.lst	31
+reg8	lst.lst	27
+reg8	lst.lst	29
+reg8	lst.lst	41
+reg8	lst.lst	43
+regName	struct.h	46
+regNode	struct.h	48
+replaceWithOpcodes	replaceWithOpcodes.c	/^int replaceWithOpcodes(char filepath[],sysTab *D_h/
+replaceWithOpcodes.o	Makefile	/^replaceWithOpcodes.o : replaceWithOpcodes.c$/
+section	1.asm	/^section .data$/
+section	1.asm	/^section .bss$/
+section	1.asm	/^section .text$/
+section	struct.h	9
+section	struct.h	18
+symbol_table	struct.h	6
+sysTab	struct.h	12
+text_entry	text_entry.c	/^int text_entry(TsysTab **head,char *name,char *sec/
+text_entry.o	Makefile	/^text_entry.o : text_entry.c$/
+text_print_table	print_table.c	/^int text_print_table(TsysTab **head)$/
+text_symb_table	struct.h	15
+type	struct.h	9
+type	struct.h	18
+val	struct.h	9
+val	struct.h	17
+value	struct.h	40
+woosh	Makefile	/^woosh :$/
+word	lst.lst	34
+zero	createMnemnic.c	2
+zero	createRegister.c	2

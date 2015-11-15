@@ -5,7 +5,7 @@ int main(int argc, char **argv)
 {
 	FILE *fp;
 	char *input,*str1, *str2, *token, *subtoken, *type, *temp;
-	char *saveptr1, *saveptr2, *buffer;
+	char *saveptr1, *saveptr2, *buffer, *inputLine;
 	int j, sectionIdentifier, count=0, i;
 	sysTab *D_head, *B_head;
 	TsysTab *T_head;
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 	createMn_Table(&M_head);
 
 	
-	printf("\n\n ");
+	printf("\n\n");
 	while(!feof(fp))
 	{
 		while(fgets(input, 70, fp) != NULL)
@@ -46,12 +46,16 @@ int main(int argc, char **argv)
 				strcpy(str1,input);
 				str1 = strtok(str1,";");
 
-				if (str1 == NULL)
-					break;
+				if (str1 == NULL || (int)(strlen(str1)) <2)
+				  break;
+				str1[strlen(str1)-1]='\0';
 				/////////////
-	     
+				printf("\n%s \t \t \t \t",str1);
+				inputLine = (char*)malloc(sizeof(char)*(strlen(str1)));
+				strcpy(inputLine,str1);
 				token = strtok_r(str1, " \t", &saveptr2);
-
+				if(token == NULL)
+				  break;
 				if (strcmp(token,"section")==0)
 				{
 					str2 = NULL;
@@ -128,7 +132,7 @@ int main(int argc, char **argv)
 						return 1;
 					}	
 				}
-
+				
 				else if(sectionIdentifier == 2 && strcmp(token,"section")!=0 && strcmp(token,"\n")!=0 && strcmp(token,"\t\n")!=0)
 				{
 					j=strlen(str1);
@@ -163,6 +167,7 @@ int main(int argc, char **argv)
 					}
 
 				}
+				
 			}
 		}	
 
@@ -170,8 +175,8 @@ int main(int argc, char **argv)
 		input = (char *) malloc(sizeof(char) * 70);
 	}
 
-	print_table(&D_head);
-	print_table(&B_head);
+	print_table(&D_head, 0);
+	print_table(&B_head, 1);
 	text_print_table(&T_head);
 	fclose(fp);
 
@@ -179,8 +184,8 @@ int main(int argc, char **argv)
        	createLiteralTable(&litHead,argv[1]);
 	//	printf("\n");	
 	//call to replace with Opcodes 
-	if(replaceWithOpcodes(argv[1],D_head,B_head,T_head,litHead,O_head,M_head,R_head) != 0)
-	  return 1;
+		if(replaceWithOpcodes(argv[1],D_head,B_head,T_head,litHead,O_head,M_head,R_head) != 0)
+	return 1;
 	
 	return 0;
 }
