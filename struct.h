@@ -53,7 +53,7 @@ int oP_Tab_main(opcd **O_head);
 int optable(opcd **ppHead,char *opcode,char *instr, char *op1,char *op2);
 int prnt_opcd(opcd **ppHead);
 
-int addEntry (sysTab **head,char *name,char *sec,char *val,char *sysType, int lineNo);
+int addEntry (sysTab **head,char *name,char *sec,char *val,char *sysType, int lineNo, FILE *fp);
 int print_table( sysTab **head, int flag);
 int text_print_table(TsysTab **head);
 int text_entry (TsysTab **head,char *name,char *sec,int val,char *sysType, int lineNo);
@@ -66,16 +66,16 @@ int checkRepeat_text(TsysTab **pHead, char *name);
 
 
 //giving final opcode
-int replaceWithOpcodes(char *input,sysTab *D_head,sysTab *B_head,TsysTab *T_head,litTab *L_head,opcd *O_head,MnemonicNode *M_head,regNode *R_head);
+int replaceWithOpcodes(char *input,sysTab *D_head,sysTab *B_head,TsysTab *T_head,litTab *L_head,opcd *O_head,MnemonicNode *M_head,regNode *R_head, FILE *fp);
 
-int rePlacement(char *mneMonic, char *inStr,char *op2, sysTab *D_head,sysTab *B_head,TsysTab *T_head,litTab *L_head,opcd *O_head,MnemonicNode *M_head,regNode *R_head);
+int rePlacement(char *mneMonic, char *inStr,char *op2, sysTab *D_head,sysTab *B_head,TsysTab *T_head,litTab *L_head,opcd *O_head,MnemonicNode *M_head,regNode *R_head, FILE *fp);
 
 int check_Rg(char *op1,regNode *R_head);
 int check_Mn(char *mneMonic,MnemonicNode *M_head);
 //op_printing
-int final_op_default(char *mneMonic,char *op1,char *op2,opcd *O_head);
-int final_op_Lsec(char *mneMonic,char *op1,char *op2,litTab *L_head);
-int final_op_sec(char *mneMonic,char *op1,char *op2,sysTab *head);
+int final_op_default(char *mneMonic,char *op1,char *op2,opcd *O_head, FILE *fp);
+int final_op_Lsec(char *mneMonic,char *op1,char *op2,litTab *L_head, FILE *fp);
+int final_op_sec(char *mneMonic,char *op1,char *op2,sysTab *head, FILE *fp);
 
 
 
@@ -89,4 +89,4 @@ void display_rg(regNode *head);
 int insert_rg(regNode **head,char *regName);
 
 //for conversion of data part
-int conversion(int address,char* input, char* dataType,sysTab *head); 
+int conversion(int address,char* input, char* dataType,sysTab *head, FILE *fp); 

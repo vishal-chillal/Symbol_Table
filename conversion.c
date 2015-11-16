@@ -1,5 +1,5 @@
 #include"struct.h"
-int conversion(int address,char* inp,char* dataType,sysTab *pHead)
+int conversion(int address,char* inp,char* dataType,sysTab *pHead, FILE *fp)
 {
 	int i=0,j=0,flag =0, cnt=0;
 	char *buff,*temp;
@@ -9,9 +9,9 @@ int conversion(int address,char* inp,char* dataType,sysTab *pHead)
 		return 1;
 	strcpy(buff,inp);
 
-	printf("%.8X ", address);
+	fprintf(fp, "%.8X ", address);
 	if(strcmp(pHead -> section,".bss")==0)
-	  printf("<res ");
+		fprintf(fp, "<res ");
 
 	if(strcmp(dataType,"db")==0)
 	{
@@ -25,7 +25,7 @@ int conversion(int address,char* inp,char* dataType,sysTab *pHead)
 				if(buff[i]!='\"')
 				{
 					cnt ++;
-					printf("%X",buff[i]);
+					fprintf(fp, "%X",buff[i]);
 				}
 			}
 			else if(buff[i]!='\"')
@@ -42,7 +42,7 @@ int conversion(int address,char* inp,char* dataType,sysTab *pHead)
 				if(strlen(temp)!=0)
 				{
 					cnt ++;
-					printf("%.2X",atoi(temp));
+					fprintf(fp, "%.2X",atoi(temp));
 				}
 			}
 			i++;
@@ -62,7 +62,7 @@ int conversion(int address,char* inp,char* dataType,sysTab *pHead)
 				i++;
 			}
 			temp[strlen(temp)]='\0';
-			printf("%.8X",atoi(temp));
+			fprintf(fp, "%.8X",atoi(temp));
 			i++;
 			cnt ++;
 		}
@@ -84,17 +84,17 @@ int conversion(int address,char* inp,char* dataType,sysTab *pHead)
 		{
 			if(strcmp(dataType,"resd")==0)      	  //      ----    printing the part for resd
 			{
-				printf("%.8X",(atoi(temp)*4));
+				fprintf(fp, "%.8X",(atoi(temp)*4));
 				cnt = (atoi(temp)*4);
 			}
 			else if(strcmp(dataType,"resw")==0)  	  //      ----    printing the part for resw
 			{
-				printf("%.8X",(atoi(temp)*2));
+				fprintf(fp, "%.8X",(atoi(temp)*2));
 				cnt = (atoi(temp)*2);
 			}
 			else if(strcmp(dataType,"resb")==0)          //      ----    printing the part for resb
 			{
-				printf("%.8X",(atoi(temp)));
+				fprintf(fp, "%.8X",(atoi(temp)));
 				cnt = (atoi(temp));
 			}
 
@@ -102,7 +102,7 @@ int conversion(int address,char* inp,char* dataType,sysTab *pHead)
 	}
 
 	if(strcmp(pHead -> section,".bss")==0)
-	  printf(">");
+		fprintf(fp, ">");
 
 	free(buff);
 	free(temp);

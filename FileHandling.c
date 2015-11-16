@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv)
 {
-	FILE *fp;
+	FILE *fp, *fptr;
 	char *input,*str1, *str2, *token, *subtoken, *type, *temp;
 	char *saveptr1, *saveptr2, *buffer, *inputLine;
 	int j, sectionIdentifier, count=0, i;
@@ -21,18 +21,23 @@ int main(int argc, char **argv)
 	input = (char *) malloc(sizeof(char) * 70);
 
 	fp=fopen(argv[1],"r");
-
 	if(fp==NULL)
 		printf("File Does Not Exist.");
+
+	fptr=fopen("output.lst","w+");
+	if(fptr==NULL)
+		printf("Could not create lst file\n");
+
 	////////////////////////////////////////////////////////
-	oP_Tab_main(&O_head); //call to akkha opCode table generation without any parameters
+	//call to akkha opCode table generation without any parameters
 	////////////////////////////////////////////////////////
+	oP_Tab_main(&O_head); 
+
 	createRg_Table(&R_head);
 	createMn_Table(&M_head);
        	createLiteralTable(&litHead,argv[1]);
 
-	
-	printf("\n\n");
+	//fprintf(fptr, "\n\n");
 	while(!feof(fp))
 	{
 		while(fgets(input, 70, fp) != NULL)
@@ -53,7 +58,7 @@ int main(int argc, char **argv)
 				/////////////
 				inputLine = (char*)malloc(sizeof(char)*(strlen(str1)));
 				strcpy(inputLine,str1);
-				printf("\n%s \t \t \t \t",inputLine);
+				fprintf(fptr, "\n%s \t \t \t \t",inputLine);
 				token = strtok_r(str1, " \t", &saveptr2);
 				if(token == NULL)
 				  break;
@@ -108,7 +113,7 @@ int main(int argc, char **argv)
 						buffer=strtok_r(str1,"\n",&saveptr2);
 					}
 					if(checkRepeat(&D_head,token) == 0) 
-						addEntry(&D_head,token,subtoken,buffer,type,count);
+						addEntry(&D_head,token,subtoken,buffer,type,count,fptr);
 					else
 					{	printf("ERROR: %d: %s label is already exist\n",count,token);
 						return 1;
@@ -127,7 +132,7 @@ int main(int argc, char **argv)
 					buffer = strtok_r(str1,"\n", &saveptr2);
 
 					if(checkRepeat(&B_head,token) == 0) 
-						addEntry(&B_head,token,subtoken,buffer,type,count);
+						addEntry(&B_head,token,subtoken,buffer,type,count, fptr);
 					else	
 					{	printf("ERROR: %d: %s label is already exist\n",count,token);
 						return 1;
@@ -146,7 +151,7 @@ int main(int argc, char **argv)
 							j--;
 					}
 
-					replaceWithOpcodes(inputLine,D_head,B_head,T_head,litHead,O_head,M_head,R_head);
+					replaceWithOpcodes(inputLine,D_head,B_head,T_head,litHead,O_head,M_head,R_head, fptr);
 
 					if(j >= 0)
 					{
@@ -180,7 +185,7 @@ int main(int argc, char **argv)
 	fclose(fp);
 
 	//literalTable function call
-	//	printf("\n");	
+		fprintf(fptr, "\n");
 	//call to replace with Opcodes 
 
 	return 0;

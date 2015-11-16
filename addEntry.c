@@ -1,5 +1,5 @@
 #include "struct.h"
-int addEntry(sysTab **head,char *name,char *sec,char *val,char *sysType,int lineNo)
+int addEntry(sysTab **head,char *name,char *sec,char *val,char *sysType,int lineNo, FILE *fp)
 {
 	sysTab *pNwnode,*pTemp;
 	int count=0;
@@ -31,7 +31,7 @@ int addEntry(sysTab **head,char *name,char *sec,char *val,char *sysType,int line
 	if(*head == NULL)
 	{
 		pNwnode->index = 1;
-		count = conversion(0,pNwnode->val,pNwnode->type,pNwnode);
+		count = conversion(0,pNwnode->val,pNwnode->type,pNwnode, fp);
 		pNwnode->lineNo = count;
 		*head = pNwnode;
 		return 0;
@@ -44,7 +44,7 @@ int addEntry(sysTab **head,char *name,char *sec,char *val,char *sysType,int line
 	    pTemp = pTemp->pNext;
 	  }
 	pNwnode->lineNo = (*head)->lineNo;
-	count = conversion(pNwnode->lineNo,pNwnode->val,pNwnode->type,pNwnode);
+	count = conversion(pNwnode->lineNo,pNwnode->val,pNwnode->type,pNwnode, fp);
      
 	(*head)->lineNo =(pNwnode->lineNo) + count;  // preserving the line no of previous entry in head
 

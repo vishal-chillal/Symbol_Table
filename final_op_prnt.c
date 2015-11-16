@@ -1,5 +1,5 @@
 #include"struct.h"
-int final_op_default(char *mneMonic,char *op1,char *op2,opcd *O_head)
+int final_op_default(char *mneMonic,char *op1,char *op2,opcd *O_head, FILE *fp)
 {
 	//  printf(" %d \t %d \t %d \n",strlen(mneMonic),strlen(op1),strlen(op2));
 	while(O_head != NULL)
@@ -8,7 +8,7 @@ int final_op_default(char *mneMonic,char *op1,char *op2,opcd *O_head)
 		if(strcmp(mneMonic,O_head->mn)==0)
 			if((strcmp(op1,O_head->op1)==0) && (strcmp(op2,O_head->op2)==0)) 
 			{	
-				printf(" %s ",O_head->opcode);
+				fprintf(fp, " %s ",O_head->opcode);
 				return 0;
 			}
 
@@ -18,13 +18,13 @@ int final_op_default(char *mneMonic,char *op1,char *op2,opcd *O_head)
 	return 1;
 }
 
-int final_op_sec(char *mneMonic,char *op1,char *op2,sysTab *pHead)
+int final_op_sec(char *mneMonic,char *op1,char *op2,sysTab *pHead, FILE *fp)
 {
 	while(pHead != NULL)
 	{
 		if(strcmp(op2,pHead->name)==0)
 		{
-			printf("[%.8X]",pHead->lineNo);
+			fprintf(fp, "[%.8X]",pHead->lineNo);
 			return 0;
 		}
 		else
@@ -34,13 +34,13 @@ int final_op_sec(char *mneMonic,char *op1,char *op2,sysTab *pHead)
 }
 
 
-int final_op_Lsec(char *mneMonic,char *op1,char *op2,litTab *pHead)
+int final_op_Lsec(char *mneMonic,char *op1,char *op2,litTab *pHead, FILE *fp)
 {
 	while(pHead != NULL)
 	{
 		if(strcmp(op2,pHead->op2)==0)
 		{
-			printf("[%.8X]",pHead->hexVal);
+			fprintf(fp, "[%.8X]",pHead->hexVal);
 			return 0;
 		}
 		else
