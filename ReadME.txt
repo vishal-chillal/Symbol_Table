@@ -11,8 +11,9 @@ How to Run:
 		./exe <asm file>
 output:
 	generation of :
-		symbol table
-		literal table
+		text file of symbol table
+		text file of literal table
+		text file of output opcode (instructions of type Reg to Reg, literals)
 		source opCode table
 
 valiadtions Handled:
@@ -22,8 +23,11 @@ valiadtions Handled:
 remaining work:
 	
 	1. error table
-	2. register table
-	3. Final opCode generation.
+	2. Remaining instruction handling
 
-
+This assignment is done by:
+	14109 Vishal Chillal
+	14142 Varad Padhye
+	14132 Saurabh Kukade
+	14144 Snehal Pitrubhakta
 	

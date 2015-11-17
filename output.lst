@@ -1,17 +1,15 @@
 
 section .data 	 	 	 	
 	msg1 dd 65,55 	 	 	 	00000000 0000004100000037
-	msg db "Addition is %d",9,0 	 	 	 	00000008 4164646974696F6E2069732025640900
-	Temp db "djdkjfd",10,0 	 	 	 	00000018 646A646B6A66640A00
-	NumA dd 12,12,929 	 	 	 	00000021 0000000C0000000C000003A1
-	NumB db "hello" 	 	 	 	0000002D 68656C6C6F
-	NumC dd 12,11 	 	 	 	00000032 0000000C0000000B
+	Temp db "djdkjfd",10,0 	 	 	 	00000008 646A646B6A66640A00
+	NumA dd 12,12,929 	 	 	 	00000011 0000000C0000000C000003A1
+	NumC dd 12,11 	 	 	 	0000001D 0000000C0000000B
 section .bss 	 	 	 	
-	twelv resd 12 	 	 	 	00000000 <res 00000030>
-	three resw 3 	 	 	 	00000030 <res 00000006>
-	four resb 4 	 	 	 	00000036 <res 00000004>
-	one resd 5 	 	 	 	0000003A <res 00000014>
-	two resd 15 	 	 	 	0000004E <res 0000003C>
+	twelv resd 12 	 	 	 	00000000 <res >
+	three resw 3 	 	 	 	00000000 <res 00000006>
+	four resb 4 	 	 	 	00000006 <res 00000004>
+	one resd 5 	 	 	 	0000000A <res 00000014>
+	two resd 15 	 	 	 	0000001E <res 0000003C>
 	 	 	 	 	
 section .text 	 	 	 	
 	global main 	 	 	 	
@@ -32,16 +30,12 @@ kk1:
 	add word[two],23 	 	 	 	[00000017]
 p223:	add dword[four],111 	 	 	 	[0000006F]
 	mov eax,32 	 	 	 	[00000020]
-	 	 	 	 	
-	push two 	 	 	 	
-	push four 	 	 	 	
 	mov al,al 	 	 	 	 	 88C0 
 	 	 	 	 	
 	sub al,byte[one] 	 	 	 	
 	mov eax,_abc 	 	 	 	
-	mov al,'a' 	 	 	 	
 l1:     mov eax,20232 	 	 	 	[00004F08]
-	mov ax,2023 	 	 	 	[000007E7]
+	mov ax,2023 	 	 	 	
 	mov al,20 	 	 	 	[00000014]
 _abc: 	ret					 	 	 	 	
 	 	 	 	 	

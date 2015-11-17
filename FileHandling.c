@@ -183,10 +183,9 @@ int main(int argc, char **argv)
 	print_table(&B_head, 1);
 	text_print_table(&T_head);
 	fclose(fp);
+	fclose(fptr);
 
 	//literalTable function call
-		fprintf(fptr, "\n");
-	//call to replace with Opcodes 
-
+	fprintf(fptr, "\n");
 	return 0;
 }

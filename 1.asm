@@ -1,9 +1,9 @@
 section .data
 	msg1 dd 65,55
-	msg db "Addition is %d",9,0
+;; 	msg db "Addition is %d",9,0
 	Temp db "djdkjfd",10,0
 	NumA dd 12,12,929
-	NumB db "hello"
+	;; 	NumB db "hello"
 	NumC dd 12,11
 section .bss
 	twelv resd 12
@@ -33,15 +33,11 @@ kk1:
 p223:	add dword[four],111	;mem32,imm32
 
 	mov eax,32
-	
-	push two
-	push four
 	mov al,al 		;reg8,reg8
 	
 	sub al,byte[one]	;reg8,mem8
 
 	mov eax,_abc
-	mov al,'a'
 l1:     mov eax,20232
 	mov ax,2023
 	mov al,20

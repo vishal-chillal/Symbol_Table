@@ -4,7 +4,6 @@
 int replaceWithOpcodes(char *input,sysTab *D_head,sysTab *B_head,TsysTab *T_head,litTab *L_head,opcd *O_head,MnemonicNode *M_head,regNode *R_head, FILE *fp)
 {
   	char *saveptr,*inputLine,*mneMonic;
-	//	tempStr = (char *)malloc(sizeof(char)*100);
 	inputLine = (char *)malloc(sizeof(char)*100);
 
 	//starting from next line of section .text
@@ -49,8 +48,6 @@ int rePlacement(char *mneMonic,char *inStr,char *op2,sysTab *D_head,sysTab *B_he
 		return 0;
 	// printf("%s :%s : %s \n", mneMonic, op1, op2);
 	if(check_Mn(mneMonic, M_head) != 0)
-		return 1;
-	if(check_Rg(op1, R_head)!= 0)
 		return 1;
 	if(final_op_default(mneMonic, op1, op2, O_head,fp) != 0)  
 	{
