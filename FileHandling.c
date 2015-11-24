@@ -58,7 +58,7 @@ int main(int argc, char **argv)
 				/////////////
 				inputLine = (char*)malloc(sizeof(char)*(strlen(str1)));
 				strcpy(inputLine,str1);
-				fprintf(fptr, "\n%s \t \t \t \t",inputLine);
+				fprintf(fptr, "\n%d %s \t \t \t \t",count,inputLine);
 				token = strtok_r(str1, " \t", &saveptr2);
 				if(token == NULL)
 				  break;

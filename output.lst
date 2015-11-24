@@ -1,41 +1,41 @@
 
-section .data 	 	 	 	
-	msg1 dd 65,55 	 	 	 	00000000 0000004100000037
-	Temp db "djdkjfd",10,0 	 	 	 	00000008 646A646B6A66640A00
-	NumA dd 12,12,929 	 	 	 	00000011 0000000C0000000C000003A1
-	NumC dd 12,11 	 	 	 	0000001D 0000000C0000000B
-section .bss 	 	 	 	
-	twelv resd 12 	 	 	 	00000000 <res >
-	three resw 3 	 	 	 	00000000 <res 00000006>
-	four resb 4 	 	 	 	00000006 <res 00000004>
-	one resd 5 	 	 	 	0000000A <res 00000014>
-	two resd 15 	 	 	 	0000001E <res 0000003C>
-	 	 	 	 	
-section .text 	 	 	 	
-	global main 	 	 	 	
-	extern printf,scanf 	 	 	 	
-	 	 	 	 	
-main:	mov eax,ebx	 	 	 	 	 89D8 
-	 	 	 	 	
-l9:	add ecx,edx 	 	 	 	 01D1 
-	mov eax,eax	 	 	 	 	 89C0 
-	 	 	 	 	
-kk1: 	 	 	 	
-	mov ah,byte[one] 	 	 	 	
-	 	 	 	 	
-	add al,al 	 	 	 	 	 00C0 
-	add ax,ax	 	 	 	 	 6601C0 
-	add eax,eax	 	 	 	 	 01C0 
-	add byte[one],10 	 	 	 	[0000000A]
-	add word[two],23 	 	 	 	[00000017]
-p223:	add dword[four],111 	 	 	 	[0000006F]
-	mov eax,32 	 	 	 	[00000020]
-	mov al,al 	 	 	 	 	 88C0 
-	 	 	 	 	
-	sub al,byte[one] 	 	 	 	
-	mov eax,_abc 	 	 	 	
-l1:     mov eax,20232 	 	 	 	[00004F08]
-	mov ax,2023 	 	 	 	
-	mov al,20 	 	 	 	[00000014]
-_abc: 	ret					 	 	 	 	
-	 	 	 	 	
+1 section .data 	 	 	 	
+2 	msg1 dd 65,55 	 	 	 	00000000 0000004100000037
+3 	Temp db "djdkjfd",10,0 	 	 	 	00000008 646A646B6A66640A00
+4 	NumA dd 12,12,929 	 	 	 	00000011 0000000C0000000C000003A1
+6 	NumC dd 12,11 	 	 	 	0000001D 0000000C0000000B
+7 section .bss 	 	 	 	
+8 	twelv resd 12 	 	 	 	00000000 <res >
+9 	three resw 3 	 	 	 	00000000 <res 00000006>
+10 	four resb 4 	 	 	 	00000006 <res 00000004>
+11 	one resd 5 	 	 	 	0000000A <res 00000014>
+12 	two resd 15 	 	 	 	0000001E <res 0000003C>
+13 	 	 	 	 	
+14 section .text 	 	 	 	
+15 	global main 	 	 	 	
+16 	extern printf,scanf 	 	 	 	
+17 	 	 	 	 	
+18 main:	mov eax,ebx	 	 	 	 	 89D8 
+19 	 	 	 	 	
+20 l9:	add ecx,edx 	 	 	 	 01D1 
+21 	mov eax,eax	 	 	 	 	 89C0 
+22 	 	 	 	 	
+23 kk1: 	 	 	 	
+24 	mov ah,byte[one] 	 	 	 	
+25 	 	 	 	 	
+26 	add al,al 	 	 	 	 	 00C0 
+27 	add ax,ax	 	 	 	 	 6601C0 
+28 	add eax,eax	 	 	 	 	 01C0 
+30 	add byte[one],10 	 	 	 	[0000000A]
+31 	add word[two],23 	 	 	 	[00000017]
+32 p223:	add dword[four],111 	 	 	 	[0000006F]
+34 	mov eax,32 	 	 	 	[00000020]
+35 	mov al,al 	 	 	 	 	 88C0 
+36 	 	 	 	 	
+37 	sub al,byte[one] 	 	 	 	
+39 	mov eax,_abc 	 	 	 	
+40 l1:     mov eax,20232 	 	 	 	[00004F08]
+41 	mov ax,2023 	 	 	 	
+42 	mov al,20 	 	 	 	[00000014]
+43 _abc: 	ret					 	 	 	 	
+44 	 	 	 	 	
