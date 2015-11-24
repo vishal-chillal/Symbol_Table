@@ -37,6 +37,9 @@ createMnemnic.o : createMnemnic.c
 	gcc -Wall -g -c createMnemnic.c
 
 woosh :
-	rm *~ *.o  exe
+	rm *~ *.o exe
+
+flush :	
+	rm LiteralTable.text symbolTable.txt output.lst
 
 
