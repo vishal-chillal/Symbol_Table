@@ -36,17 +36,25 @@ typedef struct literal_table{
 //structure for Mnemonic table
 typedef struct Mnemonic
 {
-		char *MnemonicName;
-		int value;
-		struct Mnemonic *next;
+	char *MnemonicName;
+	int value;
+	struct Mnemonic *next;
 }MnemonicNode;
 //structure for registor table
 typedef struct reg
 {
-		char *regName;
-		struct reg *next;
+	char *regName;
+	struct reg *next;
 }regNode;
 
+//structure for macro name
+typedef struct MNT
+{
+	int macroNum;
+	int No;
+	char *Macro_name;	
+	struct MNT *pNext;
+}MNT;
 
 
 int oP_Tab_main(opcd **O_head);
@@ -58,7 +66,7 @@ int print_table( sysTab **head, int flag);
 int text_print_table(TsysTab **head);
 int text_entry (TsysTab **head,char *name,char *sec,int val,char *sysType, int lineNo);
 
-int createLiteralTable(litTab **head,char filepath[]);
+int createLiteralTable(litTab **head,char filepath[],MNT **phead);
 int insert(litTab **head,char *literal,int flg );
 
 int checkRepeat(sysTab **pHead, char *name);
@@ -89,4 +97,8 @@ void display_rg(regNode *head);
 int insert_rg(regNode **head,char *regName);
 
 //for conversion of data part
-int conversion(int address,char* input, char* dataType,sysTab *head, FILE *fp); 
+int conversion(int address,char* input, char* dataType,sysTab *head, FILE *fp);
+
+//for macro table
+int MnTable(MNT **pHead,char *input);
+int printMNT(MNT *pHead);

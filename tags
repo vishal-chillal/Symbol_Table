@@ -1,16 +1,63 @@
+	cscope.out	1646
+$	cscope.out	/^	$ö£π$/
+$__USING_NAMESPACE_STD	cscope.out	/^	$__USING_NAMESPACE_STD$/
+$__is˘y≥	cscope.out	/^	$__is˘y≥_f$/
+$addE¡r	cscope.out	/^	$addE¡ry$/
+$checkRï	cscope.out	/^	$checkRïót$/
+$checkRïót_	cscope.out	/^	$checkRïót_ãxt$/
+$c⁄vî	cscope.out	/^	$c⁄vîsi⁄$/
+$di•œy_	cscope.out	/^	$di•œy_mn$/
+$di•œy_	cscope.out	/^	$di•œy_rg$/
+$ma	cscope.out	/^	$maö$/
+$ma	cscope.out	/^	$maö$/
+$oP_Tab_ma	cscope.out	/^	$oP_Tab_maö$/
+$ãxt_¥ö	cscope.out	/^	$ãxt_¥öt_èbÀ$/
+$ö£π	cscope.out	/^	$ö£π_mn$/
+$¥öt	cscope.out	/^	$¥öt_èbÀ$/
+$¥¡_	cscope.out	/^	$¥¡_›cd$/
+$¸óãL	cscope.out	/^	$¸óãLôîÆTabÀ$/
+A	text_entry.o	7
+B_hó	cscope.out	799
 Check_Mn.o	Makefile	/^Check_Mn.o : Check_Mn.c$/
 Check_Rg.o	Makefile	/^Check_Rg.o : Check_Rg.c$/
+D_hó	cscope.out	793
+FILE	cscope.out	3555
+FILE	cscope.out	3987
+FILE	cscope.out	4027
+FILE	cscope.out	4065
+FILE	cscope.out	4083
+FILE	cscope.out	4101
 FileHandling.o	Makefile	/^FileHandling.o : FileHandling.c$/
 M1.asm	1.asm	/^main:	mov eax,ebx	$/
 MFileHandling	FileHandling.c	/^int main(int argc, char **argv)$/
+MNT	struct.h	51
+MNT	struct.h	55
+M_hó	cscope.out	275
+M_hó	cscope.out	4049
+Macro_name	struct.h	54
+MnTable	macro_handle.c	/^int MnTable(MNT **pHead,char *input)$/
 Mnemonic	struct.h	37
 MnemonicName	struct.h	39
 MnemonicNode	struct.h	42
 Mtemp	temp.c	/^int main()$/
+NULL	cscope.out	535
+No	struct.h	53
+O_hó	cscope.out	263
+O_hó	cscope.out	2141
+R_hó	cscope.out	269
+R_hó	cscope.out	4039
+T_hó	cscope.out	805
 TsysTab	struct.h	21
+__	cscope.out	7495
+__BYTE_ORDER	cscope.out	22351
+__NTH	cscope.out	/^__NTH$/
+__NTH	cscope.out	/^__NTH$/
+__THROW	cscope.out	20611
+__THROW	cscope.out	20691
 _abc	1.asm	/^_abc: 	ret					$/
 addEntry	addEntry.c	/^int addEntry(sysTab **head,char *name,char *sec,ch/
 addEntry.o	Makefile	/^addEntry.o : addEntry.c$/
+ag	cscope.out	3885
 ah	lst.lst	27
 ah	myInput.text	47
 ah	myInput.text	48
@@ -130,6 +177,11 @@ bl	myInput.text	279
 bl	myInput.text	280
 bl	myInput.text	281
 bl	myInput.text	282
+buff	cscope.out	1625
+buf„	cscope.out	321
+buf„	cscope.out	539
+buf„	cscope.out	621
+buf„	cscope.out	2705
 bx	myInput.text	25
 bx	myInput.text	26
 bx	myInput.text	27
@@ -198,8 +250,10 @@ cl	myInput.text	297
 cl	myInput.text	298
 cl	myInput.text	299
 cl	myInput.text	300
-conversion	conversion.c	/^int conversion(char* inp,char* dataType)$/
+conversion	conversion.c	/^int conversion(int address,char* inp,char* dataTyp/
 conversion.o	Makefile	/^conversion.o : conversion.c$/
+cou	cscope.out	1017
+cou	cscope.out	1073
 createLiteralTable	literal.c	/^int createLiteralTable(litTab **ppHead,char filepa/
 createMn_Table	createMnemnic.c	/^int createMn_Table(MnemonicNode **first)$/
 createMnemnic.o	Makefile	/^createMnemnic.o : createMnemnic.c$/
@@ -220,6 +274,8 @@ cx	myInput.text	251
 dd	lst.lst	2
 dd	lst.lst	6
 dd	lst.lst	9
+dex	cscope.out	1101
+dex	cscope.out	4453
 dh	myInput.text	101
 dh	myInput.text	102
 dh	myInput.text	103
@@ -301,6 +357,8 @@ eax	myInput.text	223
 eax	myInput.text	224
 eax	myInput.text	225
 eax	myInput.text	226
+eax	output.lst	6
+eax	output.lst	26
 ebx	myInput.text	8
 ebx	myInput.text	9
 ebx	myInput.text	10
@@ -313,6 +371,8 @@ ebx	myInput.text	227
 ebx	myInput.text	228
 ebx	myInput.text	229
 ebx	myInput.text	230
+ebx	output.lst	15
+ebx	output.lst	27
 ecx	myInput.text	12
 ecx	myInput.text	13
 ecx	myInput.text	14
@@ -325,6 +385,11 @@ ecx	myInput.text	231
 ecx	myInput.text	232
 ecx	myInput.text	233
 ecx	myInput.text	234
+ecx	output.lst	3
+ecx	output.lst	4
+ecx	output.lst	13
+ecx	output.lst	22
+ecx	output.lst	24
 edx	myInput.text	16
 edx	myInput.text	17
 edx	myInput.text	18
@@ -337,12 +402,29 @@ edx	myInput.text	235
 edx	myInput.text	236
 edx	myInput.text	237
 edx	myInput.text	238
+esp	output.lst	11
+esp	output.lst	20
+esp	output.lst	32
 exe	Makefile	/^exe : FileHandling.o addEntry.o print_table.o text/
+fd	cscope.out	2295
+fd	cscope.out	3173
 final_op_Lsec	final_op_prnt.c	/^int final_op_Lsec(char *mneMonic,char *op1,char *o/
 final_op_default	final_op_prnt.c	/^int final_op_default(char *mneMonic,char *op1,char/
 final_op_prnt.o	Makefile	/^final_op_prnt.o : final_op_prnt.c$/
 final_op_sec	final_op_prnt.c	/^int final_op_sec(char *mneMonic,char *op1,char *op/
+flush	Makefile	/^flush :$/
+g	cscope.out	3933
+g_IO_FILE	cscope.out	4531
+gv	cscope.out	283
+hexV	cscope.out	2355
 hexVal	struct.h	33
+hó	cscope.out	1039
+hó	cscope.out	3883
+hó	cscope.out	4417
+i	cscope.out	/^55 i‡($/
+i	cscope.out	/^72 i‡($/
+i	cscope.out	/^31 i‡($/
+i	cscope.out	/^45 i‡($/
 index	struct.h	8
 index	struct.h	17
 input	ReadME.txt	/^input: (github)$/
@@ -358,10 +440,69 @@ litTab	struct.h	35
 litTable.o	Makefile	/^litTable.o : litTable.c$/
 literal.o	Makefile	/^literal.o : literal.c$/
 literal_table	struct.h	31
+löeN	cscope.out	1033
+löeN	cscope.out	1067
+löeN	cscope.out	1091
+löeN	cscope.out	4393
+mM√m⁄icNa	cscope.out	3789
+m__	cscope.out	7539
+m__cd	cscope.out	16615
+m__cd	cscope.out	16621
+m__comböe	cscope.out	16631
+m__d©	cscope.out	16627
+m__pos	cscope.out	16571
+m__pos	cscope.out	16587
+m__°	cscope.out	16577
+m__°	cscope.out	16593
+macro_handle.o	Makefile	/^macro_handle.o : macro_handle.c$/
+me	cscope.out	947
+me	cscope.out	4361
 mem16	lst.lst	34
 mem32	lst.lst	35
 mem8	lst.lst	33
+mlöeN	cscope.out	3685
+mlöeN	cscope.out	3715
+mmn	cscope.out	3743
+mn	cscope.out	2983
 mn	struct.h	26
+mp	cscope.out	485
+mp	cscope.out	1397
+mp	cscope.out	1471
+mp	cscope.out	1525
+mp	cscope.out	1631
+mp	cscope.out	1735
+mp	cscope.out	1749
+mp	cscope.out	1949
+mp	cscope.out	1963
+mp	cscope.out	3211
+mp	cscope.out	3287
+mp	cscope.out	3361
+mpNext	cscope.out	3701
+mpNext	cscope.out	3731
+mpNext	cscope.out	3755
+mqu	cscope.out	7685
+mqu	cscope.out	7723
+mty	cscope.out	3691
+mty	cscope.out	3723
+mv	cscope.out	3695
+mv	cscope.out	3717
+mvÆu	cscope.out	3793
+möde	cscope.out	3683
+möde	cscope.out	3713
+m£	cscope.out	3693
+m£	cscope.out	3725
+mª	cscope.out	7673
+mª	cscope.out	7689
+mª	cscope.out	7727
+mªgNam	cscope.out	3811
+m√M⁄	cscope.out	3421
+m√x	cscope.out	3799
+m√x	cscope.out	3817
+m«m	cscope.out	3689
+m«m	cscope.out	3721
+m›	cscope.out	3745
+m›	cscope.out	3747
+m›cod	cscope.out	3749
 name	struct.h	9
 name	struct.h	18
 next	struct.h	34
@@ -369,6 +510,7 @@ next	struct.h	41
 next	struct.h	47
 oP_Tab_main	oP_Tab_main.c	/^int oP_Tab_main(opcd **pHead)$/
 oP_Tab_main.o	Makefile	/^oP_Tab_main.o : oP_Tab_main.c$/
+of	cscope.out	/^	`„of$/
 op1	struct.h	26
 op2	struct.h	26
 op2	struct.h	32
@@ -378,13 +520,42 @@ opcode	struct.h	26
 optable	optable.c	/^int optable(opcd **ppHead,char *opcode,char *instr/
 optable.o	Makefile	/^optable.o : optable.c$/
 p223	1.asm	/^p223:	add dword[four],111	;mem32,imm32$/
+pHó	cscope.out	2195
+pHó	cscope.out	2247
+pNext	cscope.out	999
+pNext	cscope.out	1109
+pNext	cscope.out	3073
+pNext	cscope.out	3113
+pNext	cscope.out	4399
+pNext	cscope.out	4445
 pNext	struct.h	10
 pNext	struct.h	19
 pNext	struct.h	27
+pNwNode	cscope.out	2315
+pTemp	cscope.out	1045
+pTemp	cscope.out	1059
+pTemp	cscope.out	2385
+pTemp	cscope.out	2399
+pTemp	cscope.out	3091
+pTemp	cscope.out	3105
+pTemp	cscope.out	4423
+pTemp	cscope.out	4437
 print_table	print_table.c	/^int print_table(sysTab **head, int flag)$/
 print_table.o	Makefile	/^print_table.o : print_table.c$/
 prnt_opcd	prnt_opcd.c	/^int prnt_opcd(opcd **ppHead)$/
 prnt_opcd.o	Makefile	/^prnt_opcd.o : prnt_opcd.c$/
+put	cscope.out	781
+put	cscope.out	785
+put	cscope.out	2723
+putLö	cscope.out	3419
+putLö	cscope.out	3425
+putLö	cscope.out	3431
+r1	cscope.out	311
+r1	cscope.out	339
+r1	cscope.out	2695
+r2	cscope.out	413
+r2	cscope.out	2741
+r2	cscope.out	2747
 rePlacement	replaceWithOpcodes.c	/^int rePlacement(char *mneMonic,char *inStr,char *o/
 reg	struct.h	44
 reg16	lst.lst	30
@@ -396,25 +567,65 @@ reg8	lst.lst	41
 reg8	lst.lst	43
 regName	struct.h	46
 regNode	struct.h	48
-replaceWithOpcodes	replaceWithOpcodes.c	/^int replaceWithOpcodes(char filepath[],sysTab *D_h/
+replaceWithOpcodes	replaceWithOpcodes.c	/^int replaceWithOpcodes(char *input,sysTab *D_head,/
 replaceWithOpcodes.o	Makefile	/^replaceWithOpcodes.o : replaceWithOpcodes.c$/
 section	1.asm	/^section .data$/
 section	1.asm	/^section .bss$/
 section	1.asm	/^section .text$/
 section	struct.h	9
 section	struct.h	18
+subtok	cscope.out	2731
 symbol_table	struct.h	6
 sysTab	struct.h	12
+t	cscope.out	1495
+t	cscope.out	1553
+t	cscope.out	1577
+t	cscope.out	1601
+t	cscope.out	1635
+tFILE	cscope.out	4541
+tM√m⁄icNo	cscope.out	3803
+tTsysTab	cscope.out	3735
+t_G_ic⁄v_	cscope.out	16635
+t_G_Âos64_	cscope.out	16597
+t_G_Âos_	cscope.out	16581
+t__loˇÀ	cscope.out	16489
+tdiv_t	cscope.out	7677
 text_entry	text_entry.c	/^int text_entry(TsysTab **head,char *name,char *sec/
 text_entry.o	Makefile	/^text_entry.o : text_entry.c$/
 text_print_table	print_table.c	/^int text_print_table(TsysTab **head)$/
 text_symb_table	struct.h	15
+tldiv_t	cscope.out	7693
+tloˇÀ	cscope.out	16495
+tlôTa	cscope.out	3781
+tsysTab	cscope.out	3705
+tw˘øns	cscope.out	22699
+ty	cscope.out	479
+ty	cscope.out	503
+ty	cscope.out	607
+ty	cscope.out	917
+ty	cscope.out	4331
 type	struct.h	9
 type	struct.h	18
+tªgNod	cscope.out	3821
+tŒdiv_	cscope.out	7731
+t›c	cscope.out	3759
+v	cscope.out	973
+v	cscope.out	3417
+v	cscope.out	3563
+v	cscope.out	4387
+v	exe	88
 val	struct.h	9
 val	struct.h	17
 value	struct.h	40
+vï	cscope.out	597
+vÆu	cscope.out	1709
 woosh	Makefile	/^woosh :$/
 word	lst.lst	34
+xt	cscope.out	1717
+xt	cscope.out	1757
+xt	cscope.out	1931
+xt	cscope.out	1971
+xt	cscope.out	2347
+xt	cscope.out	2407
 zero	createMnemnic.c	2
 zero	createRegister.c	2

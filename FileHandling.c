@@ -6,7 +6,7 @@ int main(int argc, char **argv)
 	FILE *fp, *fptr;
 	char *input,*str1, *str2, *token, *subtoken, *type, *temp;
 	char *saveptr1, *saveptr2, *buffer, *inputLine;
-	int j, sectionIdentifier, count=0, i;
+	int j, sectionIdentifier = 55, count=0, i; //macroNo=1;
 	sysTab *D_head, *B_head;
 	TsysTab *T_head;
 	D_head =B_head= NULL;
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	M_head=NULL;
 	regNode *R_head;
 	R_head=NULL;
-	input = (char *) malloc(sizeof(char) * 70);
+	MNT *macro_head=NULL;
 
 	fp=fopen(argv[1],"r");
 	if(fp==NULL)
@@ -29,13 +29,15 @@ int main(int argc, char **argv)
 		printf("Could not create lst file\n");
 
 	////////////////////////////////////////////////////////
-	//call to akkha opCode table generation without any parameters
+	//call to refrence opCode table generation without any parameters
 	////////////////////////////////////////////////////////
 	oP_Tab_main(&O_head); 
 
 	createRg_Table(&R_head);
 	createMn_Table(&M_head);
-       	createLiteralTable(&litHead,argv[1]);
+       	createLiteralTable(&litHead,argv[1],&macro_head);
+	
+	input = (char *) malloc(sizeof(char) * 100);
 
 	//fprintf(fptr, "\n\n");
 	while(!feof(fp))
@@ -171,6 +173,10 @@ int main(int argc, char **argv)
 					else
 						i++;
 				}
+			//	else
+			//	{
+			//		macro(inputLine,macroNo);
+			//	}
 				
 			}
 		}	

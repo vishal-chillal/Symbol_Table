@@ -1,25 +1,37 @@
-#include <stdio.h>
 #include "struct.h"
 
-int createLiteralTable(litTab **ppHead,char filepath[])
+int createLiteralTable(litTab **ppHead,char filepath[],MNT **head)
 {
-        int i,j,flg = 0;
+	int i,j,flg = 0;
 	FILE *fp;
 	char *saveptr,input[100],*tempStr,*getNums;
 	fp = fopen(filepath,"r");
 
 	tempStr = (char *)malloc(sizeof(char)*100);
 
-// getting till section .text
-	while(fgets(input,100,fp) != NULL){ 
-		tempStr = strtok(input,"\n");
+	// getting macro
+	while(fgets(input,100,fp) != NULL)
+	{ 
+		tempStr = strtok_r(input," ",&saveptr);
 		if(tempStr!=NULL)
-			if(strcmp(tempStr,"section .text") == 0){
-			  break;
+		{
+			if(strcmp(tempStr,"%macro") == 0)
+			{
+				getNums = NULL;
+				MnTable(head,saveptr);
 			}
+			else if(strcmp(tempStr,"section")==0)
+			{
+				while(strcmp(input,"section .text")==0)
+					fgets(input,100,fp);
+				break;	
+			}
+		}
 	}
 
-//starting from next line of section .text
+	printMNT(*head);
+
+	//starting from next line of section .text
 
 	while(fgets(input,100,fp) != NULL){
 		tempStr = strtok(input,"\n");
@@ -38,13 +50,13 @@ int createLiteralTable(litTab **ppHead,char filepath[])
 			}
 			saveptr =NULL;
 			if( getNums[0] !='\0')
-			  {
-			    insert(ppHead,getNums,flg); // call to linklist of lit_table
-			    flg = 1;
-			  }
+			{
+				insert(ppHead,getNums,flg); // call to linklist of lit_table
+				flg = 1;
+			}
 			getNums = NULL;
-			
-			
+
+
 		}
 	}
 

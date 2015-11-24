@@ -1,5 +1,5 @@
-exe : FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o replaceWithOpcodes.o conversion.o createMnemnic.o createRegister.o Check_Rg.o Check_Mn.o final_op_prnt.o
-	 gcc -o exe FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o replaceWithOpcodes.o  conversion.o createMnemnic.o createRegister.o Check_Rg.o Check_Mn.o  final_op_prnt.o
+exe : FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o replaceWithOpcodes.o conversion.o createMnemnic.o createRegister.o Check_Rg.o Check_Mn.o final_op_prnt.o macro_handle.o
+	 gcc -o exe FileHandling.o addEntry.o print_table.o text_entry.o optable.o prnt_opcd.o oP_Tab_main.o literal.o litTable.o checkRepeat.o replaceWithOpcodes.o  conversion.o createMnemnic.o createRegister.o Check_Rg.o Check_Mn.o  final_op_prnt.o macro_handle.o
 
 final_op_prnt.o : final_op_prnt.c
 	gcc -Wall -g -c final_op_prnt.c
@@ -35,8 +35,11 @@ createRegister.o : createRegister.c
 	gcc -Wall -g -c createRegister.c
 createMnemnic.o : createMnemnic.c
 	gcc -Wall -g -c createMnemnic.c
+macro_handle.o : macro_handle.c
+	gcc -Wall -g -c macro_handle.c
 
 woosh :
 	rm *~ *.o  exe
 
-
+flush :
+	rm LiteralTable.text symbolTable.txt output.lst
